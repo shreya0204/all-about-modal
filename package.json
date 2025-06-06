@@ -23,7 +23,7 @@
     "@wordpress/blocks": "12.9.0",
     "@wordpress/i18n": "4.32.0",
     "@wordpress/interactivity": "^5.4.0",
-    "@wordpress/server-side-render": "4.9.0",
+    "@wordpress/server-side-render": "6.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
