@@ -1,0 +1,210 @@
+name: Build, test & measure
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - ready_for_review
+
+# Cancel previous workflow run groups that have not completed.
+concurrency:
+  # Group workflow runs by workflow name, along with the head branch ref of the pull request
+  # or otherwise the branch or tag ref.
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pre-run:
+    name: "Pre run"
+    runs-on: ubuntu-latest
+    outputs:
+      changed-file-count: ${{ env.count }}
+      changed-css-count: ${{ env.css-count }}
+      changed-js-count: ${{ env['js-count'] }}
+      changed-php-count: ${{ env['php-count'] }}
+      changed-gha-workflow-count: ${{ env['gha-workflow-count'] }}
+
+    steps:
+      - name: Checkout including last 2 commits
+        # Fetch last 2 commits if it's not a PR, so that we can determine the list of modified files.
+        if: ${{ github.base_ref == null }}
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Checkout
+        # Do usual checkout if it's a PR.
+        if: ${{ github.base_ref != null }}
+        uses: actions/checkout@v4
+
+      - name: Fetch base branch
+        # Only fetch base ref if it's a PR.
+        if: ${{ github.base_ref != null }}
+        run: git fetch --depth=1 --no-tags origin ${{ github.base_ref }}
+
+      - name: Determine modified files for PR
+        if: ${{ github.base_ref != null }}
+        run: echo "MODIFIED_FILES=$(git diff --name-only FETCH_HEAD HEAD | base64 -w 0)" >> $GITHUB_ENV
+
+      - name: Determine modified files for commit
+        if: ${{ github.base_ref == null }}
+        run: echo "MODIFIED_FILES=$(git diff --name-only HEAD~1 HEAD | base64 -w 0)" >> $GITHUB_ENV
+
+      - id: determine-file-counts
+        name: Determine if modified files should make the workflow run continue
+        run: |
+          MODIFIED_FILES=$(echo "$MODIFIED_FILES" | base64 -d)
+          echo -e "Modified files:\n$MODIFIED_FILES\n"
+
+          MODIFIED_FILES_DATA=$(node .github/bin/determine-modified-files-count.js "$IGNORE_PATH_REGEX" "$MODIFIED_FILES" "ignored")
+
+          CSS_FILE_COUNT=$(node .github/bin/determine-modified-files-count.js ".+\.s?css|package\.json|package-lock\.json" "$MODIFIED_FILES")
+          JS_FILE_COUNT=$(node .github/bin/determine-modified-files-count.js ".+\.(js|snap)|package\.json|package-lock\.json" "$MODIFIED_FILES")
+          PHP_FILE_COUNT=$(node .github/bin/determine-modified-files-count.js ".+\.php|composer\.(json|lock)|phpstan\.neon\.dist" "$MODIFIED_FILES")
+          GHA_WORKFLOW_COUNT=$(node .github/bin/determine-modified-files-count.js "(\.github\/workflows\/.+\.yml)" "$MODIFIED_FILES")
+
+          echo "Changed file count: $FILE_COUNT"
+          echo "Changed CSS file count: $CSS_FILE_COUNT"
+          echo "Changed JS file count: $JS_FILE_COUNT"
+          echo "Changed GHA workflow file count: $GHA_WORKFLOW_COUNT"
+
+          echo "count=$MODIFIED_FILES_DATA" >> $GITHUB_ENV
+          echo "css-count=$CSS_FILE_COUNT" >> $GITHUB_ENV
+          echo "js-count=$JS_FILE_COUNT" >> $GITHUB_ENV
+          echo "php-count=$PHP_FILE_COUNT" >> $GITHUB_ENV
+          echo "gha-workflow-count=$GHA_WORKFLOW_COUNT" >> $GITHUB_ENV
+        env:
+          # Ignore Paths:
+          # - .github/
+          # - !.github/workflows
+          # - .wordpress-org/
+          # - docs/
+          IGNORE_PATH_REGEX: \.github\/(?!workflows)|\.wordpress-org\/|docs\/
+
+  lint-css:
+    needs: pre-run
+    if: needs.pre-run.outputs.changed-css-count > 0 || needs.pre-run.outputs.changed-gha-workflow-count > 0
+    name: "Lint: CSS"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: npm
+
+      - name: Install Node dependencies
+        run: npm ci
+        env:
+          CI: true
+
+      - name: Detect coding standard violations (stylelint)
+        run: npm run lint:css
+
+  #-----------------------------------------------------------------------------------------------------------------------
+
+  lint-js:
+    name: "Lint: JS"
+    needs: pre-run
+    if: needs.pre-run.outputs.changed-js-count > 0 || needs.pre-run.outputs.changed-gha-workflow-count > 0
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: npm
+
+      - name: Install Node dependencies
+        run: npm ci
+        env:
+          CI: true
+
+      - name: Validate package.json
+        run: npm run lint:package-json
+
+      - name: Detect ESLint coding standard violations
+        if: >
+          github.event.pull_request.head.repo.fork == true ||
+          github.event.pull_request.user.login == 'dependabot[bot]'
+        run: npm run lint:js
+
+  #-----------------------------------------------------------------------------------------------------------------------
+
+  unit-test-js:
+    name: "Unit test: JS"
+    runs-on: ubuntu-latest
+    needs: pre-run
+    if: needs.pre-run.outputs.changed-js-count > 0 || needs.pre-run.outputs.changed-gha-workflow-count > 0
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: npm
+
+      - name: Setup Jest cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.jest-cache
+          key: ${{ runner.os }}-jest
+
+      - name: Install Node dependencies
+        run: npm ci
+        env:
+          CI: true
+
+      - name: Run unit tests
+        run: npm run test:js -- --ci --cacheDirectory="$HOME/.jest-cache"
+
+  #-----------------------------------------------------------------------------------------------------------------------
+
+  lint-php:
+    needs: pre-run
+    if: needs.pre-run.outputs.changed-php-count > 0 || needs.pre-run.outputs.changed-gha-workflow-count > 0
+    name: "Lint: PHP"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.0"
+          coverage: none
+          tools: cs2pr
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Configure Composer cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --optimize-autoloader --no-progress --no-interaction --no-scripts
+
+      - name: Validate composer.json
+        run: composer --no-interaction validate --no-check-all
+
+      - name: Detect coding standard violations (PHPCS)
+        run: vendor/bin/phpcs -q --report=checkstyle --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 | cs2pr --graceful-warnings

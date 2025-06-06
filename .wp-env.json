@@ -1,0 +1,24 @@
+{
+  "core": "WordPress/WordPress#master",
+  "env": {
+    "development": {
+      "plugins": [
+        "."
+      ]
+    },
+    "tests": {
+      "config": {
+        "WP_DEBUG": true
+      },
+      "themes": [
+        "https://downloads.wordpress.org/theme/twentytwentytwo.zip"
+      ],
+      "plugins": [
+        "."
+      ],
+      "mappings": {
+        "../wordpress-develop": "WordPress/wordpress-develop#trunk"
+      }
+    }
+  }
+}
