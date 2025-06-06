@@ -1,10 +1,9 @@
 <?php
 /**
  * Plugin Name: Easy_WP_Modal Features
- * Description: All backend functionality will take place in this plugin. Like, registering post type, taxonomy, widget and meta box.
- * Plugin URI:  https://rtcamp.com
- * Author:      rtCamp
- * Author URI:  https://rtcamp.com
+ * Description: A simple plugin to add modal features to your WordPress site.
+ * Author:      Shreya Agarwal
+ * Author URI:  profiles.wordpress.org/shreya0204
  * License:     GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Version:     1.0
