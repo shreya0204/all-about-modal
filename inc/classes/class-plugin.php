@@ -8,7 +8,7 @@
 namespace Easy_WP_Modal\Features\Inc;
 
 use \Easy_WP_Modal\Features\Inc\Traits\Singleton;
-use \Easy_WP_Modal\Features\Inc\Post_Types\Post_Type_Example;
+use \Easy_WP_Modal\Features\Inc\Post_Types\Modal;
 use \Easy_WP_Modal\Features\Inc\Taxonomies\Taxonomy_Example;
 
 /**
@@ -41,7 +41,7 @@ class Plugin {
 	public function load_post_types() {
 
 		// Load all post types.
-		Post_Type_Example::get_instance();
+		Modal::get_instance();
 
 	}
 
