@@ -24,7 +24,7 @@ export default function Edit() {
 	return (
 		<div {...useBlockProps()}>
 			<TextControl
-				label={__("Example Meta Block Field", "easy-wp-modal-features")}
+				label={__("Example Meta Block Field", "easy-wp-modal")}
 				value={metaFieldValue}
 				onChange={updateMetaFieldValue}
 			/>

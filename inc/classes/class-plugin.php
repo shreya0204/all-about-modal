@@ -2,14 +2,14 @@
 /**
  * Plugin manifest class.
  *
- * @package easy-wp-modal-features
+ * @package easy-wp-modal
  */
 
-namespace Easy_WP_Modal\Features\Inc;
+namespace Easy_WP_Modal\Inc;
 
-use \Easy_WP_Modal\Features\Inc\Traits\Singleton;
-use \Easy_WP_Modal\Features\Inc\Post_Types\Modal;
-use \Easy_WP_Modal\Features\Inc\Taxonomies\Taxonomy_Example;
+use \Easy_WP_Modal\Inc\Traits\Singleton;
+use \Easy_WP_Modal\Inc\Post_Types\Modal;
+use \Easy_WP_Modal\Inc\Taxonomies\Taxonomy_Example;
 
 /**
  * Class Plugin

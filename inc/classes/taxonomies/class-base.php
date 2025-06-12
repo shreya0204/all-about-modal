@@ -2,12 +2,12 @@
 /**
  * Base class to register taxonomy.
  *
- * @package easy-wp-modal-features
+ * @package easy-wp-modal
  */
 
-namespace Easy_WP_Modal\Features\Inc\Taxonomies;
+namespace Easy_WP_Modal\Inc\Taxonomies;
 
-use \Easy_WP_Modal\Features\Inc\Traits\Singleton;
+use \Easy_WP_Modal\Inc\Traits\Singleton;
 
 /**
  * Class Base

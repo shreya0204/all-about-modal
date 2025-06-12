@@ -2,7 +2,7 @@
 /**
  * PHPUnit bootstrap file
  *
- * @package easy-wp-modal-features
+ * @package easy-wp-modal
  */
 
 define( 'TESTS_PLUGIN_DIR', dirname( __DIR__ ) );
@@ -60,7 +60,7 @@ if ( false !== getenv( 'WP_TESTS_DIR' ) ) {
 
 // Force plugin to be active.
 $GLOBALS['wp_tests_options'] = array(
-	'active_plugins' => array( basename( TESTS_PLUGIN_DIR ) . '/easy-wp-modal-features.php' ),
+	'active_plugins' => array( basename( TESTS_PLUGIN_DIR ) . '/easy-wp-modal.php' ),
 );
 
 // Add filter to ensure the plugin's admin integration and all modules are loaded for tests.
@@ -68,7 +68,7 @@ require_once $_test_root . '/includes/functions.php';
 tests_add_filter(
 	'plugins_loaded',
 	function() {
-		require_once TESTS_PLUGIN_DIR . '/easy-wp-modal-features.php';
+		require_once TESTS_PLUGIN_DIR . '/easy-wp-modal.php';
 	},
 	1
 );

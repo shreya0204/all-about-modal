@@ -2,10 +2,10 @@
 /**
  * Cache class.
  *
- * @package easy-wp-modal-features
+ * @package easy-wp-modal
  */
 
-namespace Easy_WP_Modal\Features\Inc;
+namespace Easy_WP_Modal\Inc;
 
 /**
  * Class Cache
@@ -66,7 +66,7 @@ class Cache {
 	public function __construct( $cache_key = '', $cache_group = '' ) {
 
 		if ( empty( $cache_key ) || ! is_string( $cache_key ) ) {
-			return new \WP_Error( self::ERROR_CODE, esc_html__( 'Cache key is required to create cache object', 'easy-wp-modal-features' ) );
+			return new \WP_Error( self::ERROR_CODE, esc_html__( 'Cache key is required to create cache object', 'easy-wp-modal' ) );
 		}
 
 		$this->key = md5( $cache_key );
@@ -203,11 +203,11 @@ class Cache {
 	public function updates_with( $callback, $params = [] ) {
 
 		if ( empty( $callback ) || ! is_callable( $callback ) ) {
-			return new \WP_Error( self::ERROR_CODE, esc_html__( 'Callback passed is not callable', 'easy-wp-modal-features' ) );
+			return new \WP_Error( self::ERROR_CODE, esc_html__( 'Callback passed is not callable', 'easy-wp-modal' ) );
 		}
 
 		if ( ! is_array( $params ) ) {
-			return new \WP_Error( self::ERROR_CODE, esc_html__( 'All parameters for the callback must be in an array', 'easy-wp-modal-features' ) );
+			return new \WP_Error( self::ERROR_CODE, esc_html__( 'All parameters for the callback must be in an array', 'easy-wp-modal' ) );
 		}
 
 		$this->callback = $callback;
@@ -241,7 +241,7 @@ class Cache {
 		 * updates_with() is not called before get()
 		 */
 		if ( empty( $this->callback ) || ! is_callable( $this->callback ) ) {
-			return new \WP_Error( self::ERROR_CODE, esc_html__( 'No valid callback set', 'easy-wp-modal-features' ) );
+			return new \WP_Error( self::ERROR_CODE, esc_html__( 'No valid callback set', 'easy-wp-modal' ) );
 		}
 
 		try {

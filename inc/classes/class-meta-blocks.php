@@ -2,12 +2,12 @@
 /**
  * Register all block based Meta Boxes.
  *
- * @package easy-wp-modal-features
+ * @package easy-wp-modal
  */
 
-namespace Easy_WP_Modal\Features\Inc;
+namespace Easy_WP_Modal\Inc;
 
-use Easy_WP_Modal\Features\Inc\Traits\Singleton;
+use Easy_WP_Modal\Inc\Traits\Singleton;
 
 /**
  * Class Meta_Blocks
@@ -46,7 +46,7 @@ class Meta_Blocks {
 
 		// Register example-meta-block Block.
 		register_block_type(
-			EASY_WP_MODAL_FEATURES_PATH . '/assets/build/blocks/meta-blocks/example-meta-block/'
+			Easy_WP_Modal_PATH . '/assets/build/blocks/meta-blocks/example-meta-block/'
 		);
 
 	}

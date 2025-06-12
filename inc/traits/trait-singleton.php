@@ -22,10 +22,10 @@
  *
  * If you specifically need multiple objects, then use a normal class.
  *
- * @package easy-wp-modal-features
+ * @package easy-wp-modal
  */
 
-namespace Easy_WP_Modal\Features\Inc\Traits;
+namespace Easy_WP_Modal\Inc\Traits;
 
 trait Singleton {
 
@@ -76,9 +76,9 @@ trait Singleton {
 			$instance[ $called_class ] = new $called_class();
 
 			/**
-			 * Dependent items can use the easy_wp_modal_features_singleton_init_{$called_class} hook to execute code
+			 * Dependent items can use the Easy_WP_Modal_singleton_init_{$called_class} hook to execute code
 			 */
-			do_action( sprintf( 'easy_wp_modal_features_singleton_init_%s', $called_class ) ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+			do_action( sprintf( 'Easy_WP_Modal_singleton_init_%s', $called_class ) ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 
 		}
 

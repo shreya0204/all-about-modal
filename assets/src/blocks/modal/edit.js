@@ -33,7 +33,7 @@ import "./editor.scss";
 export default function Edit({ attributes }) {
 	return (
 		<ServerSideRender
-			block="easy-wp-modal-features/example-block-dynamic"
+			block="easy-wp-modal/modal"
 			attributes={attributes}
 		/>
 	);

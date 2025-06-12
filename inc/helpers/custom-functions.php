@@ -1,8 +1,8 @@
 <?php
 /**
- * Easy_WP_Modal features custom functions.
+ * Easy_WP_Modal custom functions.
  *
- * @package easy-wp-modal-features
+ * @package easy-wp-modal
  */
 
 /**
@@ -46,7 +46,7 @@ function easy_wp_modal_get_cached_posts( $args ) {
 
 	$cache_key = easy_wp_modal_get_cache_key( $args );
 
-	$cache  = new \Easy_WP_Modal\Features\Inc\Cache( $cache_key );
+	$cache  = new \Easy_WP_Modal\Inc\Cache( $cache_key );
 	$result = $cache->expires_in( $expires_in )->updates_with( 'get_posts', [ $args ] )->get();
 
 	return ( ! empty( $result ) && is_array( $result ) ) ? $result : [];
@@ -81,9 +81,9 @@ function easy_wp_modal_get_template_content( $slug, $vars = [] ) {
  *
  * @return string|void Template markup.
  */
-function easy_wp_modal_features_template( $template, $variables = [], $echo = false ) {
+function Easy_WP_Modal_template( $template, $variables = [], $echo = false ) {
 
-	$template_file = sprintf( '%1$s/templates/%2$s.php', EASY_WP_MODAL_FEATURES_PATH, $template );
+	$template_file = sprintf( '%1$s/templates/%2$s.php', Easy_WP_Modal_PATH, $template );
 
 	if ( ! file_exists( $template_file ) ) {
 		return '';
@@ -117,7 +117,7 @@ function easy_wp_modal_features_template( $template, $variables = [], $echo = fa
  */
 function easy_wp_modal_get_data( $slug, $default = [] ) {
 
-	$data_file = sprintf( EASY_WP_MODAL_FEATURES_PATH . '/inc/data/%s.php', $slug );
+	$data_file = sprintf( Easy_WP_Modal_PATH . '/inc/data/%s.php', $slug );
 
 	if ( file_exists( $data_file ) ) {
 

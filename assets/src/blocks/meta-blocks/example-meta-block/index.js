@@ -18,7 +18,7 @@ import Edit from "./edit";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType("easy-wp-modal-features/example-meta-block", {
+registerBlockType("easy-wp-modal/example-meta-block", {
 	/**
 	 * @see ./edit.js
 	 */

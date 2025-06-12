@@ -2,12 +2,12 @@
 /**
  * Registers all custom gutenberg blocks.
  *
- * @package easy-wp-modal-features
+ * @package easy-wp-modal
  */
 
-namespace Easy_WP_Modal\Features\Inc;
+namespace Easy_WP_Modal\Inc;
 
-use Easy_WP_Modal\Features\Inc\Traits\Singleton;
+use Easy_WP_Modal\Inc\Traits\Singleton;
 
 /**
  * Class Blocks
@@ -43,17 +43,17 @@ class Blocks {
 
 		// Register example-block Block.
 		register_block_type(
-			EASY_WP_MODAL_FEATURES_PATH . '/assets/build/blocks/example-block/'
+			Easy_WP_Modal_PATH . '/assets/build/blocks/example-block/'
 		);
 
 		// Register example-block Block.
 		register_block_type(
-			EASY_WP_MODAL_FEATURES_PATH . '/assets/build/blocks/example-block-interactive/'
+			Easy_WP_Modal_PATH . '/assets/build/blocks/example-block-interactive/'
 		);
 
 		// Register example-block-dynamic Block.
 		register_block_type(
-			EASY_WP_MODAL_FEATURES_PATH . '/assets/build/blocks/example-block-dynamic/',
+			Easy_WP_Modal_PATH . '/assets/build/blocks/example-block-dynamic/',
 			[
 				'render_callback' => [ $this, 'render_example_block_dynamic' ],
 			]
@@ -71,7 +71,7 @@ class Blocks {
 
 		$attributes = wp_parse_args( $attributes, [] );
 
-		return easy_wp_modal_features_template(
+		return Easy_WP_Modal_template(
 			'block-templates/example-block-dynamic',
 			[
 				'attributes' => $attributes,
