@@ -31,13 +31,16 @@ import save from "./save";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType("easy-wp-modal/modal", {
-	/**
-	 * @see ./edit.js
-	 */
-	edit: Edit,
-	/**
-	 * @see ./save.js
-	 */
-	save,
-});
+registerBlockType(
+	"easy-wp-modal/modal",
+	{
+		/**
+		 * @see ./edit.js
+		 */
+		edit: Edit,
+		/**
+		 * @see ./save.js
+		 */
+		save,
+	}
+);

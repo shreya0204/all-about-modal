@@ -41,38 +41,28 @@ class Blocks {
 	 */
 	public function register_blocks() {
 
-		// Register example-block Block.
+		// Register modal block.
 		register_block_type(
-			Easy_WP_Modal_PATH . '/assets/build/blocks/example-block/'
-		);
-
-		// Register example-block Block.
-		register_block_type(
-			Easy_WP_Modal_PATH . '/assets/build/blocks/example-block-interactive/'
-		);
-
-		// Register example-block-dynamic Block.
-		register_block_type(
-			Easy_WP_Modal_PATH . '/assets/build/blocks/example-block-dynamic/',
+			Easy_WP_Modal_PATH . '/assets/build/blocks/modal/',
 			[
-				'render_callback' => [ $this, 'render_example_block_dynamic' ],
+				'render_callback' => [ $this, 'render_modal' ],
 			]
 		);
 
 	}
 
 	/**
-	 * Render example-block-dynamic Block.
+	 * Render the modal block.
 	 *
 	 * @param array $attributes Block attributes.
 	 * @return string Rendered HTML.
 	 */
-	public function render_example_block_dynamic( $attributes = [] ) {
+	public function render_modal( $attributes = [] ) {
 
 		$attributes = wp_parse_args( $attributes, [] );
 
-		return Easy_WP_Modal_template(
-			'block-templates/example-block-dynamic',
+		return easy_wp_modal_template(
+			'block-templates/modal.php',
 			[
 				'attributes' => $attributes,
 			]

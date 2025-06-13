@@ -1,6 +1,6 @@
 <?php
 /**
- * Example block dynamic template.
+ * Modal block template.
  *
  * @package easy-wp-modal
  */

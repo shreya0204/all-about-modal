@@ -18,15 +18,18 @@ import Edit from "./edit";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType("easy-wp-modal/example-meta-block", {
-	/**
-	 * @see ./edit.js
-	 */
-	edit: Edit,
+registerBlockType(
+	"easy-wp-modal/example-meta-block",
+	{
+		/**
+		 * @see ./edit.js
+		 */
+		edit: Edit,
 
-	/*
-	 * No data is saved to the block when working with a meta block.
-	 * Data is saved to post meta via the hook.
-	 */
-	save: () => null,
-});
+		/*
+		* No data is saved to the block when working with a meta block.
+		* Data is saved to post meta via the hook.
+		*/
+		save: () => null,
+	}
+);

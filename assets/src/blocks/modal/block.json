@@ -5,7 +5,7 @@
 	"version": "1.0.0",
 	"title": "Modal",
 	"category": "widgets",
-	"icon": "smiley",
+	"icon": "layout",
 	"description": "A modal block for Easy WP Modal Features plugin.",
 	"keywords": [
 		"modal",
@@ -15,7 +15,36 @@
 	"supports": {
 		"html": false
 	},
-	"attributes": {},
+	"attributes": {
+		"modalId": {
+			"type": "string",
+			"default": "easy-wp-modal"
+		},
+		"triggerOnPageLoad": {
+			"type": "boolean",
+			"default": false
+		},
+		"triggerOnPageLoadDelay": {
+			"type": "number",
+			"default": 0
+		},
+		"triggerOnScroll": {
+			"type": "boolean",
+			"default": false
+		},
+		"triggerOnScrollPercentage": {
+			"type": "number",
+			"default": 50
+		},
+		"triggerOnExitIntent": {
+			"type": "boolean",
+			"default": false
+		},
+		"triggerOnExitIntentTimes": {
+			"type": "number",
+			"default": 1
+		}
+	},
 	"textdomain": "easy-wp-modal",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

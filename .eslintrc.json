@@ -1,0 +1,13 @@
+{
+  "root": true,
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "extends": ["plugin:wordpress/recommended"],
+  "plugins": ["wordpress"],
+  "env": {
+    "browser": true,
+    "es6": true
+  }
+}

@@ -25,8 +25,8 @@ require_once Easy_WP_Modal_PATH . '/inc/helpers/custom-functions.php';
  *
  * @return void
  */
-function Easy_WP_Modal_plugin_loader() {
+function easy_wp_modal_plugin_loader() {
 	\Easy_WP_Modal\Inc\Plugin::get_instance();
 }
 
-Easy_WP_Modal_plugin_loader();
+easy_wp_modal_plugin_loader();
