@@ -32,7 +32,7 @@ export default function Edit({ attributes, setAttributes }) {
 	//Fetch all modal from 'easy-wp-modal' post type.
 	const modals = useSelect((select) => {
 		return select("core").getEntityRecords("postType", "ewm-modal", {
-			per_page: 1000,
+			per_page: -1,
 		});
 	}, []);
 
