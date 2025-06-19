@@ -81,7 +81,7 @@ function easy_wp_modal_get_template_content( $slug, $vars = [] ) {
  *
  * @return string|void Template markup.
  */
-function Easy_WP_Modal_template( $template, $variables = [], $echo = false ) {
+function easy_wp_modal_template( $template, $variables = [], $echo = false ) {
 
 	$template_file = sprintf( '%1$s/templates/%2$s.php', Easy_WP_Modal_PATH, $template );
 

@@ -5,10 +5,18 @@
  * @package easy-wp-modal
  */
 
+
 ?>
-<div>
-	<h2><?php esc_html_e( 'Example block dynamic', 'easy-wp-modal' ); ?></h2>
-	<p>
-		<?php esc_html_e( 'This is an example block dynamic template.', 'easy-wp-modal' ); ?>
-	</p>
-</div>
+
+<easy-wp-modal data-modal-id="<?php echo esc_attr( $attributes['modalId'] ); ?>">
+	<tp-modal overlay-click-close="yes">
+		<tp-modal-close>
+			<button>Close</button>
+		</tp-modal-close>
+		<tp-modal-content>
+			<?php
+			echo wp_kses_post( $content );
+			?>
+		</tp-modal-content>
+	</tp-modal>
+</easy-wp-modal>
