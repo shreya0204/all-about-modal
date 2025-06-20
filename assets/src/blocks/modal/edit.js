@@ -47,9 +47,7 @@ export default function Edit({ attributes, setAttributes }) {
 					"Please create a modal first to use this block.",
 					"easy-wp-modal"
 				)}
-			>
-				<p>{__("No modals found. Please create one.", "easy-wp-modal")}</p>
-			</Placeholder>
+			/>
 		);
 	}
 
@@ -57,7 +55,6 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<div {...blockProps}>
 				<Placeholder
-					icon="admin-comments"
 					label={__("Modal", "easy-wp-modal")}
 					instructions={
 						modalId
@@ -70,11 +67,7 @@ export default function Edit({ attributes, setAttributes }) {
 									"easy-wp-modal"
 							  )
 					}
-				>
-					<p>
-						{__("This is a placeholder for the modal block.", "easy-wp-modal")}
-					</p>
-				</Placeholder>
+				/>
 			</div>
 			<InspectorControls>
 				<PanelBody title={__("Modal Settings", "easy-wp-modal")}>
