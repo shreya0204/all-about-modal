@@ -59,10 +59,17 @@ export default function Edit({ attributes, setAttributes }) {
 				<Placeholder
 					icon="admin-comments"
 					label={__("Modal", "easy-wp-modal")}
-					instructions={__(
-						"Please choose a modal to your post or page. You can customize the behavior from the settings.",
-						"easy-wp-modal"
-					)}
+					instructions={
+						modalId
+							? __(
+									`Modal selected with id: ${modalId}. You can customize the behavior from the settings.`,
+									"easy-wp-modal"
+							  )
+							: __(
+									"Please choose a modal to your post or page. You can customize the behavior from the settings.",
+									"easy-wp-modal"
+							  )
+					}
 				>
 					<p>
 						{__("This is a placeholder for the modal block.", "easy-wp-modal")}
