@@ -23,11 +23,13 @@ export default function Edit({ attributes, setAttributes }) {
 		modalId,
 		triggerOnPageLoad,
 		triggerOnPageLoadDelay,
-		triggerOnPageScroll,
-		triggerOnPageScrollPercentage,
+		triggerOnScroll,
+		triggerOnScrollPercentage,
 		triggerOnExitIntent,
 		triggerOnExitIntentTimes,
 	} = attributes;
+
+	console.log("hi", triggerOnScroll);
 
 	//Fetch all modal from 'easy-wp-modal' post type.
 	const modals = useSelect((select) => {
@@ -36,7 +38,6 @@ export default function Edit({ attributes, setAttributes }) {
 		});
 	}, []);
 
-	console.log("Modals:", modals);
 	if (!modals || modals?.length === 0) {
 		return (
 			<Placeholder
@@ -75,8 +76,6 @@ export default function Edit({ attributes, setAttributes }) {
 							label={__("Select Modal", "easy-wp-modal")}
 							value={modalId}
 							onChange={(value) => {
-								console.log("Selected Modal ID:", modalId);
-								console.log("New Value:", value);
 								setAttributes({ modalId: value });
 							}}
 							options={[
@@ -123,25 +122,23 @@ export default function Edit({ attributes, setAttributes }) {
 					<PanelRow>
 						<ToggleControl
 							label={__("Trigger on Page Scroll", "easy-wp-modal")}
-							checked={triggerOnPageScroll}
-							onChange={(value) =>
-								setAttributes({ triggerOnPageScroll: value })
-							}
+							checked={triggerOnScroll}
+							onChange={(value) => setAttributes({ triggerOnScroll: value })}
 							help={__(
 								"Enable this to show the modal when the user scrolls down the page.",
 								"easy-wp-modal"
 							)}
 						/>
 					</PanelRow>
-					{triggerOnPageScroll && (
+					{triggerOnScroll && (
 						<PanelRow>
 							<TextControl
 								label={__("Page Scroll Percentage (%)", "easy-wp-modal")}
-								value={triggerOnPageScrollPercentage}
+								value={triggerOnScrollPercentage}
 								type="number"
 								onChange={(value) =>
 									setAttributes({
-										triggerOnPageScrollPercentage: parseInt(value),
+										triggerOnScrollPercentage: parseInt(value),
 									})
 								}
 								help={__(
