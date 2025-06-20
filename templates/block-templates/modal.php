@@ -8,7 +8,15 @@
 
 ?>
 
-<easy-wp-modal data-modal-id="<?php echo esc_attr( $attributes['modalId'] ); ?>">
+<easy-wp-modal
+	modal-id="<?php echo esc_attr( $attributes['modalId'] ); ?>"
+	trigger-on-page-load ="<?php echo esc_attr( $attributes['triggerOnPageLoad'] ); ?>"
+	trigger-on-page-load-delay ="<?php echo esc_attr( $attributes['triggerOnPageLoadDelay'] ); ?>"
+	trigger-on-scroll ="<?php echo esc_attr( $attributes['triggerOnScroll'] ); ?>"
+	trigger-on-scroll-percentage ="<?php echo esc_attr( $attributes['triggerOnScrollPercentage'] ); ?>"
+	trigger-on-exit-intent ="<?php echo esc_attr( $attributes['triggerOnExitIntent'] ); ?>"
+	trigger-on-exit-intent-times ="<?php echo esc_attr( $attributes['triggerOnExitIntentTimes'] ); ?>"
+>
 	<tp-modal overlay-click-close="yes">
 		<tp-modal-close>
 			<button>Close</button>

@@ -61,9 +61,16 @@ class Assets {
 			filemtime( Easy_WP_Modal_PATH . '/assets/build/css/main.css' )
 		);
 
+		wp_register_style(
+			'tp-modal',
+			Easy_WP_Modal_URL . '/node_modules/@travelopia/web-components/dist/modal/style.css',
+			[],
+			filemtime( Easy_WP_Modal_PATH . '/node_modules/@travelopia/web-components/dist/modal/style.css' )
+		);
+
 		wp_enqueue_script( 'easy-wp-modal-script' );
 		wp_enqueue_style( 'easy-wp-modal-style' );
-
+		wp_enqueue_style( 'tp-modal' );
 	}
 
 	/**

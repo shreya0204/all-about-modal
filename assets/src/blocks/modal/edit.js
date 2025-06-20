@@ -111,7 +111,7 @@ export default function Edit({ attributes, setAttributes }) {
 								value={triggerOnPageLoadDelay}
 								type="number"
 								onChange={(value) =>
-									setAttributes({ triggerOnPageLoadDelay: value })
+									setAttributes({ triggerOnPageLoadDelay: parseInt(value) })
 								}
 								help={__(
 									"Set a delay in seconds before the modal appears on page load.",
@@ -140,7 +140,9 @@ export default function Edit({ attributes, setAttributes }) {
 								value={triggerOnPageScrollPercentage}
 								type="number"
 								onChange={(value) =>
-									setAttributes({ triggerOnPageScrollPercentage: value })
+									setAttributes({
+										triggerOnPageScrollPercentage: parseInt(value),
+									})
 								}
 								help={__(
 									"Set the percentage of the page to scroll before the modal appears.",
@@ -170,7 +172,7 @@ export default function Edit({ attributes, setAttributes }) {
 								value={triggerOnExitIntentTimes}
 								type="number"
 								onChange={(value) =>
-									setAttributes({ triggerOnExitIntentTimes: value })
+									setAttributes({ triggerOnExitIntentTimes: parseInt(value) })
 								}
 								help={__(
 									"Set the number of times to show the modal on exit intent.",

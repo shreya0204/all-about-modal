@@ -85,7 +85,7 @@ class Blocks {
 	 * @param array $attributes Block attributes.
 	 * @return string Rendered HTML.
 	 */
-	public function render_modal( $attributes = []) {
+	public function render_modal( $attributes = [], $content = '' ) {
 
 		$attributes = wp_parse_args( $attributes, [] );
 		$modal_content = $this->get_modal_content( $attributes );
