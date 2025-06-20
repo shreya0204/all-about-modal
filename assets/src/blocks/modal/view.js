@@ -92,7 +92,8 @@ class Modal extends HTMLElement {
 	 * @returns {void}
 	 */
 	open() {
-		const modal = document.querySelector(`tp-modal`);
+		const modalId = this.getAttribute("modal-id");
+		const modal = document.querySelector(`tp-modal[modal-id="${modalId}"]`);
 		if (modal) {
 			modal.open();
 		} else {

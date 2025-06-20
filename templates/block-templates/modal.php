@@ -15,7 +15,7 @@
 	trigger-on-exit-intent ="<?php echo esc_attr( $attributes['triggerOnExitIntent'] ); ?>"
 	trigger-on-exit-intent-times ="<?php echo esc_attr( $attributes['triggerOnExitIntentTimes'] ); ?>"
 >
-	<tp-modal overlay-click-close="yes">
+	<tp-modal overlay-click-close="yes" modal-id="<?php echo esc_attr( $attributes['modalId'] ); ?>">
 		<tp-modal-close>
 			<button>Close</button>
 		</tp-modal-close>
