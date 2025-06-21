@@ -2,7 +2,13 @@
  * WordPress dependencies
  */
 import { __ } from "@wordpress/i18n";
-import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
+import {
+	InspectorControls,
+	useBlockProps,
+	InnerBlocks,
+	store,
+	useInnerBlocksProps,
+} from "@wordpress/block-editor";
 import { Placeholder, PanelBody, PanelRow } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
 
@@ -16,7 +22,7 @@ import {
 	TextControl,
 } from "@wordpress/components";
 
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit({ attributes, setAttributes, clientId }) {
 	const blockProps = useBlockProps();
 
 	const {
@@ -27,9 +33,13 @@ export default function Edit({ attributes, setAttributes }) {
 		triggerOnScrollPercentage,
 		triggerOnExitIntent,
 		triggerOnExitIntentTimes,
+		triggerOnClick,
+		triggerOnHover,
+		triggerOnFocus,
+		triggerOnMouseLeave,
+		triggerScrollIntoView,
+		triggerScrollIntoViewOffset,
 	} = attributes;
-
-	console.log("hi", triggerOnScroll);
 
 	//Fetch all modal from 'easy-wp-modal' post type.
 	const modals = useSelect((select) => {
@@ -37,6 +47,11 @@ export default function Edit({ attributes, setAttributes }) {
 			per_page: -1,
 		});
 	}, []);
+
+	const hasInnerBlocks = useSelect(
+		(select) => select(store).getBlock(clientId)?.innerBlocks?.length > 0,
+		[clientId]
+	);
 
 	if (!modals || modals?.length === 0) {
 		return (
@@ -68,6 +83,7 @@ export default function Edit({ attributes, setAttributes }) {
 							  )
 					}
 				/>
+				<InnerBlocks />
 			</div>
 			<InspectorControls>
 				<PanelBody title={__("Modal Settings", "easy-wp-modal")}>
@@ -91,6 +107,8 @@ export default function Edit({ attributes, setAttributes }) {
 							)}
 						/>
 					</PanelRow>
+				</PanelBody>
+				<PanelBody title={__("Page Trigger Settings", "easy-wp-modal")}>
 					<PanelRow>
 						<ToggleControl
 							label={__("Trigger on Page Load", "easy-wp-modal")}
@@ -169,7 +187,9 @@ export default function Edit({ attributes, setAttributes }) {
 								value={triggerOnExitIntentTimes}
 								type="number"
 								onChange={(value) =>
-									setAttributes({ triggerOnExitIntentTimes: parseInt(value) })
+									setAttributes({
+										triggerOnExitIntentTimes: parseInt(value),
+									})
 								}
 								help={__(
 									"Set the number of times to show the modal on exit intent.",
@@ -179,6 +199,87 @@ export default function Edit({ attributes, setAttributes }) {
 						</PanelRow>
 					)}
 				</PanelBody>
+				{hasInnerBlocks && (
+					<PanelBody title={__("Block Trigger Settings", "easy-wp-modal")}>
+						<PanelRow>
+							<ToggleControl
+								label={__("Trigger on Click", "easy-wp-modal")}
+								checked={triggerOnClick}
+								onChange={(value) => setAttributes({ triggerOnClick: value })}
+								help={__(
+									"Enable this to show the modal when the block is clicked.",
+									"easy-wp-modal"
+								)}
+							/>
+						</PanelRow>
+						<PanelRow>
+							<ToggleControl
+								label={__("Trigger on Hover", "easy-wp-modal")}
+								checked={triggerOnHover}
+								onChange={(value) => setAttributes({ triggerOnHover: value })}
+								help={__(
+									"Enable this to show the modal when the block is hovered.",
+									"easy-wp-modal"
+								)}
+							/>
+						</PanelRow>
+						<PanelRow>
+							<ToggleControl
+								label={__("Trigger on Focus", "easy-wp-modal")}
+								checked={triggerOnFocus}
+								onChange={(value) => setAttributes({ triggerOnFocus: value })}
+								help={__(
+									"Enable this to show the modal when the block is focused.",
+									"easy-wp-modal"
+								)}
+							/>
+						</PanelRow>
+						<PanelRow>
+							<ToggleControl
+								label={__("Trigger on Mouse Leave", "easy-wp-modal")}
+								checked={triggerOnMouseLeave}
+								onChange={(value) =>
+									setAttributes({ triggerOnMouseLeave: value })
+								}
+								help={__(
+									"Enable this to show the modal when the mouse leaves the block.",
+									"easy-wp-modal"
+								)}
+							/>
+						</PanelRow>
+						<PanelRow>
+							<ToggleControl
+								label={__("Trigger on Scroll Into View", "easy-wp-modal")}
+								checked={triggerScrollIntoView}
+								onChange={(value) =>
+									setAttributes({ triggerScrollIntoView: value })
+								}
+								help={__(
+									"Enable this to show the modal when the block scrolls into view.",
+									"easy-wp-modal"
+								)}
+							/>
+						</PanelRow>
+						{triggerScrollIntoView && (
+							<PanelRow>
+								<TextControl
+									label={__("Scroll Into View Offset (px)", "easy-wp-modal")}
+									value={triggerScrollIntoViewOffset}
+									type="number"
+									onChange={(value) =>
+										setAttributes({
+											triggerScrollIntoViewOffset: parseInt(value),
+										})
+									}
+									help={__(
+										"Set the offset in pixels for when the modal should appear after scrolling into view.",
+										"easy-wp-modal"
+									)}
+								/>
+							</PanelRow>
+						)}
+					</PanelBody>
+				)}
 			</InspectorControls>
 		</>
 	);

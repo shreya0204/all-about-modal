@@ -95,6 +95,7 @@ class Blocks {
 			[
 				'attributes' => $attributes,
 				'content'    => $modal_content,
+				'inner_blocks' => $content,
 			]
 		);
 	}

@@ -5,8 +5,16 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-todo-list {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+.easy-wp-modal {
+	display: block;
+
+	&__tp-modal tp-modal-close  button {
+		background: transparent;
+		color: white;
+		font-weight: 800;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+		font-size: 1rem;
+	}
 }

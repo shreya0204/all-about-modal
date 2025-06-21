@@ -13,7 +13,8 @@
 		"dialog"
 	],
 	"supports": {
-		"html": false
+		"html": false,
+		"innerBlocks": true
 	},
 	"attributes": {
 		"modalId": {
@@ -43,6 +44,30 @@
 		"triggerOnExitIntentTimes": {
 			"type": "number",
 			"default": 1
+		},
+		"triggerOnClick": {
+			"type": "boolean",
+			"default": false
+		},
+		"triggerOnHover": {
+			"type": "boolean",
+			"default": false
+		},
+		"triggerOnFocus": {
+			"type": "boolean",
+			"default": false
+		},
+		"triggerOnMouseLeave": {
+			"type": "boolean",
+			"default": false
+		},
+		"triggerScrollIntoView": {
+			"type": "boolean",
+			"default": false
+		},
+		"triggerScrollIntoViewOffset": {
+			"type": "number",
+			"default": 0
 		}
 	},
 	"textdomain": "easy-wp-modal",
