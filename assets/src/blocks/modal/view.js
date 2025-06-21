@@ -59,7 +59,6 @@ class Modal extends HTMLElement {
 
 		// Trigger on page scroll
 		if (this.triggerOnScroll) {
-			console.log(this.triggerOnScroll, this.triggerOnScrollPercentage);
 			this.handleTriggerOnScroll(this.triggerOnScrollPercentage);
 		}
 

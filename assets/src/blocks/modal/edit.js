@@ -9,13 +9,9 @@ import {
 	store,
 	useInnerBlocksProps,
 } from "@wordpress/block-editor";
-import {
-	Placeholder,
-	PanelBody,
-	PanelRow,
-	Notice,
-} from "@wordpress/components";
+import { Placeholder, PanelBody, PanelRow } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
+import { useEffect, useRef } from "@wordpress/element";
 
 /**
  * Internal dependencies
@@ -47,6 +43,24 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		triggerScrollIntoViewOffset,
 	} = attributes;
 
+	const defaultPageTriggers = {
+		triggerOnPageLoad: false,
+		triggerOnPageLoadDelay: 3,
+		triggerOnScroll: false,
+		triggerOnScrollPercentage: 50,
+		triggerOnExitIntent: false,
+		triggerOnExitIntentTimes: 1,
+	};
+
+	const defaultBlockTriggers = {
+		triggerOnClick: false,
+		triggerOnHover: false,
+		triggerOnFocus: false,
+		triggerOnMouseLeave: false,
+		triggerScrollIntoView: false,
+		triggerScrollIntoViewOffset: 0,
+	};
+
 	//Fetch all modal from 'easy-wp-modal' post type.
 	const modals = useSelect((select) => {
 		return select("core").getEntityRecords("postType", "ewm-modal", {
@@ -58,6 +72,18 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		(select) => select(store).getBlock(clientId)?.innerBlocks?.length > 0,
 		[clientId]
 	);
+
+	const prevHasInnerBlocks = useRef(hasInnerBlocks);
+
+	useEffect(() => {
+		if (prevHasInnerBlocks.current !== hasInnerBlocks) {
+			prevHasInnerBlocks.current = hasInnerBlocks;
+
+			setAttributes(
+				hasInnerBlocks ? defaultPageTriggers : defaultBlockTriggers
+			);
+		}
+	}, [hasInnerBlocks]);
 
 	if (!modals || modals?.length === 0) {
 		return (
@@ -205,7 +231,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 								label={__("Trigger on Exit Intent", "easy-wp-modal")}
 								checked={triggerOnExitIntent}
 								onChange={(value) => {
-									console.log("Exit Intent Trigger:", value);
 									setAttributes({ triggerOnExitIntent: value });
 								}}
 								help={__(
@@ -326,6 +351,3 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		</>
 	);
 }
-
-// Don't apply page level trigger if it is block level trigger
-// Don't apply block level trigger if it is page level trigger
