@@ -9,7 +9,12 @@ import {
 	store,
 	useInnerBlocksProps,
 } from "@wordpress/block-editor";
-import { Placeholder, PanelBody, PanelRow } from "@wordpress/components";
+import {
+	Placeholder,
+	PanelBody,
+	PanelRow,
+	Notice,
+} from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
 
 /**
@@ -27,6 +32,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 	const {
 		modalId,
+		visibleOn,
 		triggerOnPageLoad,
 		triggerOnPageLoadDelay,
 		triggerOnScroll,
@@ -107,6 +113,31 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 							)}
 						/>
 					</PanelRow>
+					<PanelRow>
+						<SelectControl
+							label={__("Device Visibility", "easy-wp-modal")}
+							value={visibleOn}
+							onChange={(value) => setAttributes({ visibleOn: value })}
+							options={[
+								{
+									label: __("Both Desktop and Mobile", "easy-wp-modal"),
+									value: "both",
+								},
+								{
+									label: __("Only Desktop", "easy-wp-modal"),
+									value: "desktop",
+								},
+								{
+									label: __("Only Mobile", "easy-wp-modal"),
+									value: "mobile",
+								},
+							]}
+							help={__(
+								"Choose where this modal should appear based on device.",
+								"easy-wp-modal"
+							)}
+						/>
+					</PanelRow>
 				</PanelBody>
 				{!hasInnerBlocks ? (
 					<PanelBody title={__("Page Trigger Settings", "easy-wp-modal")}>
@@ -183,6 +214,14 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 								)}
 							/>
 						</PanelRow>
+						{/* {visibleOn === "mobile" && triggerOnExitIntent && (
+							<Notice status="warning" isDismissible={false}>
+								{__(
+									"Exit intent may not work reliably on mobile devices.",
+									"easy-wp-modal"
+								)}
+							</Notice>
+						)} */}
 						{triggerOnExitIntent && (
 							<PanelRow>
 								<TextControl

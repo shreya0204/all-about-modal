@@ -21,6 +21,17 @@ class Modal extends HTMLElement {
 			return;
 		}
 
+		this.visibleOn = this.getAttribute("visible-on") || "both";
+		this.isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+		// Stop early if device does not match visibility rule
+		if (
+			(this.visibleOn === "desktop" && this.isMobile) ||
+			(this.visibleOn === "mobile" && !this.isMobile)
+		) {
+			return;
+		}
+
 		this.triggeronPageLoad = this.getAttribute("trigger-on-page-load") === "1";
 		this.triggerOnPageLoadDelay =
 			parseInt(this.getAttribute("trigger-on-page-load-delay"), 10) || 3;

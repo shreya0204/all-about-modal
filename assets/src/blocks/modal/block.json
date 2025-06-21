@@ -19,7 +19,11 @@
 	"attributes": {
 		"modalId": {
 			"type": "string",
-			"default": "easy-wp-modal"
+			"default": ""
+		},
+		"visibleOn": {
+			"type": "string",
+			"default": "both"
 		},
 		"triggerOnPageLoad": {
 			"type": "boolean",

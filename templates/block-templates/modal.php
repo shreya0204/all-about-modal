@@ -8,6 +8,7 @@
 
 <easy-wp-modal
 	modal-id="<?php echo esc_attr( $attributes['modalId'] ); ?>"
+	visible-on ="<?php echo esc_attr( $attributes['visibleOn'] ); ?>"
 	trigger-on-page-load ="<?php echo esc_attr( $attributes['triggerOnPageLoad'] ); ?>"
 	trigger-on-page-load-delay ="<?php echo esc_attr( $attributes['triggerOnPageLoadDelay'] ); ?>"
 	trigger-on-scroll ="<?php echo esc_attr( $attributes['triggerOnScroll'] ); ?>"
