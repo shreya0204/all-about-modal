@@ -20,8 +20,6 @@
 	trigger-on-mouse-leave ="<?php echo esc_attr( $attributes['triggerOnMouseLeave'] ); ?>"
 	trigger-scroll-into-view ="<?php echo esc_attr( $attributes['triggerScrollIntoView'] ); ?>"
 	trigger-scroll-into-view-offset ="<?php echo esc_attr( $attributes['triggerScrollIntoViewOffset'] ); ?>"
-	trigger-on-key-down ="<?php echo esc_attr( $attributes['triggerOnKeydown'] ); ?>"
-	trigger-on-key-down-key ="<?php echo esc_attr( $attributes['triggerOnKeydownKey'] ); ?>"
 	class="easy-wp-modal"
 >
 	<?php echo wp_kses_post( $inner_blocks ); ?>

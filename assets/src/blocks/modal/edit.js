@@ -108,98 +108,101 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 						/>
 					</PanelRow>
 				</PanelBody>
-				<PanelBody title={__("Page Trigger Settings", "easy-wp-modal")}>
-					<PanelRow>
-						<ToggleControl
-							label={__("Trigger on Page Load", "easy-wp-modal")}
-							checked={triggerOnPageLoad}
-							value={triggerOnPageLoad}
-							onChange={(value) => setAttributes({ triggerOnPageLoad: value })}
-							help={__(
-								"Enable this to show the modal when the page loads.",
-								"easy-wp-modal"
-							)}
-						/>
-					</PanelRow>
-					{triggerOnPageLoad && (
+				{!hasInnerBlocks ? (
+					<PanelBody title={__("Page Trigger Settings", "easy-wp-modal")}>
 						<PanelRow>
-							<TextControl
-								label={__("Page Load Delay (seconds)", "easy-wp-modal")}
-								value={triggerOnPageLoadDelay}
-								type="number"
+							<ToggleControl
+								label={__("Trigger on Page Load", "easy-wp-modal")}
+								checked={triggerOnPageLoad}
+								value={triggerOnPageLoad}
 								onChange={(value) =>
-									setAttributes({ triggerOnPageLoadDelay: parseInt(value) })
+									setAttributes({ triggerOnPageLoad: value })
 								}
 								help={__(
-									"Set a delay in seconds before the modal appears on page load.",
+									"Enable this to show the modal when the page loads.",
 									"easy-wp-modal"
 								)}
 							/>
 						</PanelRow>
-					)}
-					<PanelRow>
-						<ToggleControl
-							label={__("Trigger on Page Scroll", "easy-wp-modal")}
-							checked={triggerOnScroll}
-							onChange={(value) => setAttributes({ triggerOnScroll: value })}
-							help={__(
-								"Enable this to show the modal when the user scrolls down the page.",
-								"easy-wp-modal"
-							)}
-						/>
-					</PanelRow>
-					{triggerOnScroll && (
+						{triggerOnPageLoad && (
+							<PanelRow>
+								<TextControl
+									label={__("Page Load Delay (seconds)", "easy-wp-modal")}
+									value={triggerOnPageLoadDelay}
+									type="number"
+									onChange={(value) =>
+										setAttributes({ triggerOnPageLoadDelay: parseInt(value) })
+									}
+									help={__(
+										"Set a delay in seconds before the modal appears on page load.",
+										"easy-wp-modal"
+									)}
+								/>
+							</PanelRow>
+						)}
 						<PanelRow>
-							<TextControl
-								label={__("Page Scroll Percentage (%)", "easy-wp-modal")}
-								value={triggerOnScrollPercentage}
-								type="number"
-								onChange={(value) =>
-									setAttributes({
-										triggerOnScrollPercentage: parseInt(value),
-									})
-								}
+							<ToggleControl
+								label={__("Trigger on Page Scroll", "easy-wp-modal")}
+								checked={triggerOnScroll}
+								onChange={(value) => setAttributes({ triggerOnScroll: value })}
 								help={__(
-									"Set the percentage of the page to scroll before the modal appears.",
+									"Enable this to show the modal when the user scrolls down the page.",
 									"easy-wp-modal"
 								)}
 							/>
 						</PanelRow>
-					)}
-					<PanelRow>
-						<ToggleControl
-							label={__("Trigger on Exit Intent", "easy-wp-modal")}
-							checked={triggerOnExitIntent}
-							onChange={(value) => {
-								console.log("Exit Intent Trigger:", value);
-								setAttributes({ triggerOnExitIntent: value });
-							}}
-							help={__(
-								"Enable this to show the modal when the user intends to leave the page.",
-								"easy-wp-modal"
-							)}
-						/>
-					</PanelRow>
-					{triggerOnExitIntent && (
+						{triggerOnScroll && (
+							<PanelRow>
+								<TextControl
+									label={__("Page Scroll Percentage (%)", "easy-wp-modal")}
+									value={triggerOnScrollPercentage}
+									type="number"
+									onChange={(value) =>
+										setAttributes({
+											triggerOnScrollPercentage: parseInt(value),
+										})
+									}
+									help={__(
+										"Set the percentage of the page to scroll before the modal appears.",
+										"easy-wp-modal"
+									)}
+								/>
+							</PanelRow>
+						)}
 						<PanelRow>
-							<TextControl
-								label={__("Exit Intent Times", "easy-wp-modal")}
-								value={triggerOnExitIntentTimes}
-								type="number"
-								onChange={(value) =>
-									setAttributes({
-										triggerOnExitIntentTimes: parseInt(value),
-									})
-								}
+							<ToggleControl
+								label={__("Trigger on Exit Intent", "easy-wp-modal")}
+								checked={triggerOnExitIntent}
+								onChange={(value) => {
+									console.log("Exit Intent Trigger:", value);
+									setAttributes({ triggerOnExitIntent: value });
+								}}
 								help={__(
-									"Set the number of times to show the modal on exit intent.",
+									"Enable this to show the modal when the user intends to leave the page.",
 									"easy-wp-modal"
 								)}
 							/>
 						</PanelRow>
-					)}
-				</PanelBody>
-				{hasInnerBlocks && (
+						{triggerOnExitIntent && (
+							<PanelRow>
+								<TextControl
+									label={__("Exit Intent Times", "easy-wp-modal")}
+									value={triggerOnExitIntentTimes}
+									type="number"
+									onChange={(value) =>
+										setAttributes({
+											triggerOnExitIntentTimes: parseInt(value),
+										})
+									}
+									help={__(
+										"Set the number of times to show the modal on exit intent.",
+										"easy-wp-modal"
+									)}
+								/>
+							</PanelRow>
+						)}
+					</PanelBody>
+				) : (
 					<PanelBody title={__("Block Trigger Settings", "easy-wp-modal")}>
 						<PanelRow>
 							<ToggleControl
@@ -284,3 +287,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		</>
 	);
 }
+
+// Don't apply page level trigger if it is block level trigger
+// Don't apply block level trigger if it is page level trigger
