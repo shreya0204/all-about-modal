@@ -281,7 +281,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 								checked={triggerOnClick}
 								onChange={(value) => setAttributes({ triggerOnClick: value })}
 								help={__(
-									"Opens the modal when this block is clicked.",
+									"Opens the modal when this block is clicked. This trigger can be used multiple times.",
 									"easy-wp-modal"
 								)}
 							/>

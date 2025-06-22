@@ -52,6 +52,8 @@ class Modal extends HTMLElement {
 		this.triggerScrollIntoViewOffset =
 			parseInt(this.getAttribute("trigger-scroll-into-view-offset"), 10) || 0;
 
+		this.triggered = new Set();
+
 		// Trigger on page load
 		if (this.triggeronPageLoad) {
 			this.handleTriggerOnPageLoad(this.triggerOnPageLoadDelay);
@@ -67,32 +69,22 @@ class Modal extends HTMLElement {
 			this.handleTriggerOnExitIntent(this.triggerOnExitIntentTimes);
 		}
 
-		// Trigger on click
 		if (this.triggerOnClick) {
 			this.addEventListener("click", () => {
 				this.open();
 			});
 		}
 
-		// Trigger on hover
 		if (this.triggerOnHover) {
-			this.addEventListener("mouseenter", () => {
-				this.open();
-			});
+			this.addEventListener("mouseenter", () => this.openOnce("hover"));
 		}
 
-		// Trigger on focus
 		if (this.triggerOnFocus) {
-			this.addEventListener("focus", () => {
-				this.open();
-			});
+			this.addEventListener("focus", () => this.openOnce("focus"));
 		}
 
-		// Trigger on mouse leave
 		if (this.triggerOnMouseLeave) {
-			this.addEventListener("mouseleave", () => {
-				this.open();
-			});
+			this.addEventListener("mouseleave", () => this.openOnce("mouseleave"));
 		}
 
 		// Trigger scroll into view
@@ -108,9 +100,7 @@ class Modal extends HTMLElement {
 	 * @returns {void}
 	 */
 	handleTriggerOnPageLoad(delay) {
-		setTimeout(() => {
-			this.open();
-		}, delay * 1000);
+		setTimeout(() => this.openOnce("pageload"), delay * 1000);
 	}
 
 	/**
@@ -120,20 +110,16 @@ class Modal extends HTMLElement {
 	 * @returns {void}
 	 */
 	handleTriggerOnScroll(percentage) {
-		this.hasScrollTriggered = false;
-
 		this.handleScroll = () => {
 			const scrollPosition =
 				(window.scrollY + window.innerHeight) /
 				document.documentElement.scrollHeight;
 
-			if (!this.hasScrollTriggered && scrollPosition >= percentage / 100) {
-				this.open();
-				this.hasScrollTriggered = true;
+			if (scrollPosition >= percentage / 100) {
+				this.openOnce("scroll");
 				window.removeEventListener("scroll", this.handleScroll);
 			}
 		};
-
 		window.addEventListener("scroll", this.handleScroll);
 	}
 
@@ -167,7 +153,7 @@ class Modal extends HTMLElement {
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
-						this.open();
+						this.openOnce("scrollIntoView");
 						observer.disconnect();
 					}
 				});
@@ -178,7 +164,6 @@ class Modal extends HTMLElement {
 				threshold: 0.1,
 			}
 		);
-
 		observer.observe(this);
 	}
 
@@ -195,6 +180,18 @@ class Modal extends HTMLElement {
 		} else {
 			console.warn("tp-modal not found inside easy-wp-modal.");
 		}
+	}
+
+	/**
+	 * Opens the modal only once for a specific trigger type.
+	 *
+	 * @param {string} triggerType - The type of trigger (e.g., click, hover).
+	 * @returns {void}
+	 */
+	openOnce(triggerType) {
+		if (this.triggered.has(triggerType)) return;
+		this.triggered.add(triggerType);
+		this.open();
 	}
 }
 
