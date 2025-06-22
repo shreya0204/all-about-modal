@@ -31,7 +31,7 @@
 		},
 		"triggerOnPageLoadDelay": {
 			"type": "number",
-			"default": 3
+			"default": 0
 		},
 		"triggerOnScroll": {
 			"type": "boolean",
@@ -47,7 +47,7 @@
 		},
 		"triggerOnExitIntentTimes": {
 			"type": "number",
-			"default": 1
+			"default": 0
 		},
 		"triggerOnClick": {
 			"type": "boolean",

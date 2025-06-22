@@ -34,14 +34,14 @@ class Modal extends HTMLElement {
 
 		this.triggeronPageLoad = this.getAttribute("trigger-on-page-load") === "1";
 		this.triggerOnPageLoadDelay =
-			parseInt(this.getAttribute("trigger-on-page-load-delay"), 10) || 3;
+			parseInt(this.getAttribute("trigger-on-page-load-delay"), 10) || 0;
 		this.triggerOnScroll = this.getAttribute("trigger-on-scroll") === "1";
 		this.triggerOnScrollPercentage =
 			parseInt(this.getAttribute("trigger-on-scroll-percentage"), 10) || 50;
 		this.triggerOnExitIntent =
 			this.getAttribute("trigger-on-exit-intent") === "1";
 		this.triggerOnExitIntentTimes =
-			parseInt(this.getAttribute("trigger-on-exit-intent-times"), 10) || 1;
+			parseInt(this.getAttribute("trigger-on-exit-intent-times"), 10) || 0;
 		this.triggerOnClick = this.getAttribute("trigger-on-click") === "1";
 		this.triggerOnHover = this.getAttribute("trigger-on-hover") === "1";
 		this.triggerOnFocus = this.getAttribute("trigger-on-focus") === "1";
@@ -145,7 +145,7 @@ class Modal extends HTMLElement {
 		document.addEventListener("mouseout", (event) => {
 			if (event.clientY < 0) {
 				exitIntentCount++;
-				if (exitIntentCount <= times) {
+				if (times === 0 || exitIntentCount <= times) {
 					this.open();
 				}
 			}

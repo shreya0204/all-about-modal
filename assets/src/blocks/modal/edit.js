@@ -16,6 +16,7 @@ import {
 	Placeholder,
 	PanelBody,
 	PanelRow,
+	Notice,
 } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
 import { useEffect, useRef } from "@wordpress/element";
@@ -259,14 +260,14 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									label={__("Trigger Limit", "easy-wp-modal")}
 									value={triggerOnExitIntentTimes}
 									type="number"
-									min={1}
+									min={0}
 									onChange={(value) =>
 										setAttributes({
-											triggerOnExitIntentTimes: parseInt(value) || 1,
+											triggerOnExitIntentTimes: parseInt(value) || 0,
 										})
 									}
 									help={__(
-										"How many times should this trigger per page session?",
+										"How many times should this trigger per page session? Set to 0 for unlimited.",
 										"easy-wp-modal"
 									)}
 								/>
