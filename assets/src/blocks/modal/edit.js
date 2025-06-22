@@ -101,6 +101,38 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		);
 	}
 
+	/**
+	 * Helper function to safely parse and set numeric attributes
+	 *
+	 * @param {string} value - The input value to parse
+	 * @param {function} setFn - The function to set the attribute
+	 * @param {string} key - The attribute key to set
+	 * @param {Object} options - Options for min and max values
+	 * @param {number} options.min - Minimum allowed value (default: -Infinity)
+	 * @param {number} options.max - Maximum allowed value (default: Infinity)
+	 *
+	 * @description
+	 * This function checks if the value is empty, parses it as an integer,
+	 * and ensures it falls within the specified min and max range before setting it.
+	 *
+	 * @returns {void}
+	 */
+	const handleSafeNumberChange = (
+		value,
+		setFn,
+		key,
+		{ min = -Infinity, max = Infinity } = {}
+	) => {
+		if (value === "") {
+			setFn({ [key]: value });
+			return;
+		}
+		const parsed = parseInt(value, 10);
+		if (!isNaN(parsed) && parsed >= min && parsed <= max) {
+			setFn({ [key]: parsed });
+		}
+	};
+
 	return (
 		<>
 			<div {...blockProps}>
@@ -191,9 +223,14 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									type="number"
 									min={0}
 									onChange={(value) =>
-										setAttributes({
-											triggerOnPageLoadDelay: parseInt(value) || 0,
-										})
+										handleSafeNumberChange(
+											value,
+											setAttributes,
+											"triggerOnPageLoadDelay",
+											{
+												min: 0,
+											}
+										)
 									}
 									help={__(
 										"Wait this many seconds after page load before showing.",
@@ -222,9 +259,15 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									min={1}
 									max={100}
 									onChange={(value) =>
-										setAttributes({
-											triggerOnScrollPercentage: parseInt(value) || 1,
-										})
+										handleSafeNumberChange(
+											value,
+											setAttributes,
+											"triggerOnScrollPercentage",
+											{
+												min: 1,
+												max: 100,
+											}
+										)
 									}
 									help={__(
 										"Show modal after user scrolls this percent of the page.",
@@ -262,9 +305,14 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									type="number"
 									min={0}
 									onChange={(value) =>
-										setAttributes({
-											triggerOnExitIntentTimes: parseInt(value) || 0,
-										})
+										handleSafeNumberChange(
+											value,
+											setAttributes,
+											"triggerOnExitIntentTimes",
+											{
+												min: 0,
+											}
+										)
 									}
 									help={__(
 										"How many times should this trigger per page session? Set to 0 for unlimited.",
@@ -343,9 +391,14 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									type="number"
 									min={0}
 									onChange={(value) =>
-										setAttributes({
-											triggerScrollIntoViewOffset: parseInt(value) || 0,
-										})
+										handleSafeNumberChange(
+											value,
+											setAttributes,
+											"triggerScrollIntoViewOffset",
+											{
+												min: 0,
+											}
+										)
 									}
 									help={__(
 										"Optional pixel offset before triggering scroll modal.",
