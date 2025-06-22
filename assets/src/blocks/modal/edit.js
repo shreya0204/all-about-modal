@@ -9,7 +9,14 @@ import {
 	store,
 	useInnerBlocksProps,
 } from "@wordpress/block-editor";
-import { Placeholder, PanelBody, PanelRow } from "@wordpress/components";
+import {
+	SelectControl,
+	ToggleControl,
+	TextControl,
+	Placeholder,
+	PanelBody,
+	PanelRow,
+} from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
 import { useEffect, useRef } from "@wordpress/element";
 
@@ -17,11 +24,6 @@ import { useEffect, useRef } from "@wordpress/element";
  * Internal dependencies
  */
 import "./editor.scss";
-import {
-	SelectControl,
-	ToggleControl,
-	TextControl,
-} from "@wordpress/components";
 
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const blockProps = useBlockProps();
