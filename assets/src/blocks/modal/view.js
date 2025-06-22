@@ -70,21 +70,31 @@ class Modal extends HTMLElement {
 		}
 
 		if (this.triggerOnClick) {
-			this.addEventListener("click", () => {
+			this.addEventListener("click", (event) => {
+				event.stopPropagation();
 				this.open();
 			});
 		}
 
 		if (this.triggerOnHover) {
-			this.addEventListener("mouseenter", () => this.openOnce("hover"));
+			this.addEventListener("mouseenter", (event) => {
+				event.stopPropagation();
+				this.openOnce("hover");
+			});
 		}
 
 		if (this.triggerOnFocus) {
-			this.addEventListener("focus", () => this.openOnce("focus"));
+			this.addEventListener("focus", (event) => {
+				event.stopPropagation();
+				this.openOnce("focus");
+			});
 		}
 
 		if (this.triggerOnMouseLeave) {
-			this.addEventListener("mouseleave", () => this.openOnce("mouseleave"));
+			this.addEventListener("mouseleave", (event) => {
+				event.stopPropagation();
+				this.openOnce("mouseleave");
+			});
 		}
 
 		// Trigger scroll into view
