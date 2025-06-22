@@ -7,7 +7,6 @@ import {
 	useBlockProps,
 	InnerBlocks,
 	store,
-	useInnerBlocksProps,
 } from "@wordpress/block-editor";
 import {
 	SelectControl,
