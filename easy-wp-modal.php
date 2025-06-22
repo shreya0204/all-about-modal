@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Easy_WP_Modal
- * Description: A simple plugin to add modal features to your WordPress site.
+ * Plugin Name: Easy WP Modal
+ * Description: A simple plugin to add modal to your WordPress site.
  * Author:      Shreya Agarwal
  * Author URI:  profiles.wordpress.org/shreya0204
  * License:     GPL2

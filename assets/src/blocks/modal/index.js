@@ -6,7 +6,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-import { registerBlockType } from "@wordpress/blocks";
+import { registerBlockType } from '@wordpress/blocks';
 
 /**
  * Internal dependencies
@@ -18,13 +18,13 @@ import { registerBlockType } from "@wordpress/blocks";
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import "./style.scss";
+import './style.scss';
 
 /**
  * Internal dependencies
  */
-import Edit from "./edit";
-import save from "./save";
+import Edit from './edit';
+import save from './save';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -32,7 +32,7 @@ import save from "./save";
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType(
-	"easy-wp-modal/modal",
+	'easy-wp-modal/modal',
 	{
 		/**
 		 * @see ./edit.js
@@ -42,5 +42,5 @@ registerBlockType(
 		 * @see ./save.js
 		 */
 		save,
-	}
+	},
 );
