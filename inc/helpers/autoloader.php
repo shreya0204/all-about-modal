@@ -71,7 +71,7 @@ function autoloader( $resource = '' ) {
 				break;
 		}
 
-		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( Easy_WP_Modal_PATH ), $directory, $file_name );
+		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( EASY_WP_MODAL_PATH ), $directory, $file_name );
 
 	}
 
@@ -87,7 +87,7 @@ function autoloader( $resource = '' ) {
 		}
 
 		// Create resource path for `TestCase` class as it is not in `tests/php/inc` directory.
-		$resource_path = sprintf( '%s/tests/php/%s.php', untrailingslashit( Easy_WP_Modal_PATH ), $file_name );
+		$resource_path = sprintf( '%s/tests/php/%s.php', untrailingslashit( EASY_WP_MODAL_PATH ), $file_name );
 
 	}
 

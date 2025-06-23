@@ -48,24 +48,24 @@ class Assets {
 
 		wp_register_script(
 			'easy-wp-modal-script',
-			Easy_WP_Modal_URL . '/assets/build/js/main.js',
+			EASY_WP_MODAL_URL . '/assets/build/js/main.js',
 			[],
-			filemtime( Easy_WP_Modal_PATH . '/assets/build/js/main.js' ),
+			filemtime( EASY_WP_MODAL_PATH . '/assets/build/js/main.js' ),
 			true
 		);
 
 		wp_register_style(
 			'easy-wp-modal-style',
-			Easy_WP_Modal_URL . '/assets/build/css/main.css',
+			EASY_WP_MODAL_URL . '/assets/build/css/main.css',
 			[],
-			filemtime( Easy_WP_Modal_PATH . '/assets/build/css/main.css' )
+			filemtime( EASY_WP_MODAL_PATH . '/assets/build/css/main.css' )
 		);
 
 		wp_register_style(
 			'tp-modal',
-			Easy_WP_Modal_URL . '/node_modules/@travelopia/web-components/dist/modal/style.css',
+			EASY_WP_MODAL_URL . '/node_modules/@travelopia/web-components/dist/modal/style.css',
 			[],
-			filemtime( Easy_WP_Modal_PATH . '/node_modules/@travelopia/web-components/dist/modal/style.css' )
+			filemtime( EASY_WP_MODAL_PATH . '/node_modules/@travelopia/web-components/dist/modal/style.css' )
 		);
 
 		wp_enqueue_script( 'easy-wp-modal-script' );
@@ -84,17 +84,17 @@ class Assets {
 
 		wp_register_script(
 			'easy-wp-modal-script',
-			Easy_WP_Modal_URL . '/assets/build/js/admin.js',
+			EASY_WP_MODAL_URL . '/assets/build/js/admin.js',
 			[],
-			filemtime( Easy_WP_Modal_PATH . '/assets/build/js/admin.js' ),
+			filemtime( EASY_WP_MODAL_PATH . '/assets/build/js/admin.js' ),
 			true
 		);
 
 		wp_register_style(
 			'easy-wp-modal-style',
-			Easy_WP_Modal_URL . '/assets/build/css/admin.css',
+			EASY_WP_MODAL_URL . '/assets/build/css/admin.css',
 			[],
-			filemtime( Easy_WP_Modal_PATH . '/assets/build/css/admin.css' )
+			filemtime( EASY_WP_MODAL_PATH . '/assets/build/css/admin.css' )
 		);
 
 		wp_enqueue_script( 'easy-wp-modal-script' );
@@ -110,11 +110,12 @@ class Assets {
 	public function enqueue_module_scripts() {
 
 		wp_register_script_module(
-			'@features-plugin-skeleton/module', Easy_WP_Modal_URL . '/assets/build/js/modules/module.js',
+			'@features-plugin-skeleton/module',
+			EASY_WP_MODAL_URL . '/assets/build/js/modules/module.js',
 			[
 				'@wordpress/interactivity',
 			],
-			filemtime( Easy_WP_Modal_PATH . '/assets/build/js/modules/module.js' )
+			filemtime( EASY_WP_MODAL_PATH . '/assets/build/js/modules/module.js' )
 		);
 
 		wp_enqueue_script_module( '@features-plugin-skeleton/module' );

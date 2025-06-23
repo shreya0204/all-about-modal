@@ -43,7 +43,7 @@ class Blocks {
 
 		// Register modal block.
 		register_block_type(
-			Easy_WP_Modal_PATH . '/assets/build/blocks/modal/',
+			EASY_WP_MODAL_PATH . '/assets/build/blocks/modal/',
 			[
 				'render_callback' => [ $this, 'render_modal' ],
 			]
@@ -82,19 +82,21 @@ class Blocks {
 	/**
 	 * Render the modal block.
 	 *
-	 * @param array $attributes Block attributes.
+	 * @param array  $attributes Block attributes.
+	 * @param string $content Block content.
+	 * 
 	 * @return string Rendered HTML.
 	 */
 	public function render_modal( $attributes = [], $content = '' ) {
 
-		$attributes = wp_parse_args( $attributes, [] );
+		$attributes    = wp_parse_args( $attributes, [] );
 		$modal_content = $this->get_modal_content( $attributes );
 
 		return easy_wp_modal_template(
 			'block-templates/modal',
 			[
-				'attributes' => $attributes,
-				'content'    => $modal_content,
+				'attributes'   => $attributes,
+				'content'      => $modal_content,
 				'inner_blocks' => $content,
 			]
 		);

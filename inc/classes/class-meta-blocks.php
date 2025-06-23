@@ -46,7 +46,7 @@ class Meta_Blocks {
 
 		// Register example-meta-block Block.
 		register_block_type(
-			Easy_WP_Modal_PATH . '/assets/build/blocks/meta-blocks/example-meta-block/'
+			EASY_WP_MODAL_PATH . '/assets/build/blocks/meta-blocks/example-meta-block/'
 		);
 
 	}

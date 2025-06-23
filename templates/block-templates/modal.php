@@ -4,6 +4,7 @@
  *
  * @package easy-wp-modal
  */
+
 ?>
 
 <easy-wp-modal

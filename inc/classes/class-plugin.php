@@ -53,29 +53,29 @@ class Plugin {
 	 */
 	public function allow_easy_wp_modal_tags( $allowed_html, $context ) {
 		if ( 'post' === $context || 'user_description' === $context ) {
-			$allowed_html['easy-wp-modal'] = [
-				'modal-id'                     => true,
-				'visible-on'                   => true,
-				'trigger-on-page-load'         => true,
-				'trigger-on-page-load-delay'   => true,
-				'trigger-on-scroll'            => true,
-				'trigger-on-scroll-percentage' => true,
-				'trigger-on-exit-intent'       => true,
-				'trigger-on-exit-intent-times' => true,
-				'trigger-on-click'             => true,
-				'trigger-on-hover'             => true,
-				'trigger-on-focus'             => true,
-				'trigger-on-mouse-leave'       => true,
-				'trigger-scroll-into-view'     => true,
+			$allowed_html['easy-wp-modal']    = [
+				'modal-id'                        => true,
+				'visible-on'                      => true,
+				'trigger-on-page-load'            => true,
+				'trigger-on-page-load-delay'      => true,
+				'trigger-on-scroll'               => true,
+				'trigger-on-scroll-percentage'    => true,
+				'trigger-on-exit-intent'          => true,
+				'trigger-on-exit-intent-times'    => true,
+				'trigger-on-click'                => true,
+				'trigger-on-hover'                => true,
+				'trigger-on-focus'                => true,
+				'trigger-on-mouse-leave'          => true,
+				'trigger-scroll-into-view'        => true,
 				'trigger-scroll-into-view-offset' => true,
-				'class'                        => true,
+				'class'                           => true,
 			];
-			$allowed_html['tp-modal'] = [
+			$allowed_html['tp-modal']         = [
 				'overlay-click-close' => true,
 				'modal-id'            => true,
 				'class'               => true,
 			];
-			$allowed_html['tp-modal-close'] = [];
+			$allowed_html['tp-modal-close']   = [];
 			$allowed_html['tp-modal-content'] = [];
 		}
 		

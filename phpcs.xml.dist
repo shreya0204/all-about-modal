@@ -16,7 +16,6 @@
 		<properties>
 			<property name="text_domain" type="array">
 				<element value="easy-wp-modal"/>
-				<element value="default"/>
 			</property>
 		</properties>
 	</rule>

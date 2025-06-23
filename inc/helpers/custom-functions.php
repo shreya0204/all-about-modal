@@ -83,7 +83,7 @@ function easy_wp_modal_get_template_content( $slug, $vars = [] ) {
  */
 function easy_wp_modal_template( $template, $variables = [], $echo = false ) {
 
-	$template_file = sprintf( '%1$s/templates/%2$s.php', Easy_WP_Modal_PATH, $template );
+	$template_file = sprintf( '%1$s/templates/%2$s.php', EASY_WP_MODAL_PATH, $template );
 
 	if ( ! file_exists( $template_file ) ) {
 		return '';
@@ -117,7 +117,7 @@ function easy_wp_modal_template( $template, $variables = [], $echo = false ) {
  */
 function easy_wp_modal_get_data( $slug, $default = [] ) {
 
-	$data_file = sprintf( Easy_WP_Modal_PATH . '/inc/data/%s.php', $slug );
+	$data_file = sprintf( EASY_WP_MODAL_PATH . '/inc/data/%s.php', $slug );
 
 	if ( file_exists( $data_file ) ) {
 
