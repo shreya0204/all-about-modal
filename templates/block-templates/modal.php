@@ -2,12 +2,12 @@
 /**
  * Modal block template.
  *
- * @package easy-wp-modal
+ * @package all-about-modal
  */
 
 ?>
 
-<easy-wp-modal
+<all-about-modal
 	modal-id="<?php echo esc_attr( $attributes['modalId'] ); ?>"
 	visible-on ="<?php echo esc_attr( $attributes['visibleOn'] ); ?>"
 	trigger-on-page-load ="<?php echo esc_attr( $attributes['triggerOnPageLoad'] ); ?>"
@@ -22,10 +22,10 @@
 	trigger-on-mouse-leave ="<?php echo esc_attr( $attributes['triggerOnMouseLeave'] ); ?>"
 	trigger-scroll-into-view ="<?php echo esc_attr( $attributes['triggerScrollIntoView'] ); ?>"
 	trigger-scroll-into-view-offset ="<?php echo esc_attr( $attributes['triggerScrollIntoViewOffset'] ); ?>"
-	class="easy-wp-modal"
+	class="all-about-modal"
 >
 	<?php echo wp_kses_post( $inner_blocks ); ?>
-	<tp-modal overlay-click-close="yes" modal-id="<?php echo esc_attr( $attributes['modalId'] ); ?>" class="easy-wp-modal__tp-modal">
+	<tp-modal overlay-click-close="yes" modal-id="<?php echo esc_attr( $attributes['modalId'] ); ?>" class="all-about-modal__tp-modal">
 		<tp-modal-close>
 			<button>
 				<svg
@@ -49,4 +49,4 @@
 			?>
 		</tp-modal-content>
 	</tp-modal>
-</easy-wp-modal>
+</all-about-modal>

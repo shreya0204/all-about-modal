@@ -2,12 +2,12 @@
 /**
  * Plugin manifest class.
  *
- * @package easy-wp-modal
+ * @package all-about-modal
  */
 
-namespace Easy_WP_Modal\Tests\Inc;
+namespace All_About_Modal\Tests\Inc;
 
-use Easy_WP_Modal\Tests\TestCase;
+use All_About_Modal\Tests\TestCase;
 
 /**
  * Class Test_Plugin
@@ -22,6 +22,6 @@ class Test_Plugin extends TestCase {
 	 * @since 1.0.0
 	 */
 	public function test_plugin_class_exists() {
-		$this->assertTrue( class_exists( 'Easy_WP_Modal\Inc\Plugin' ) );
+		$this->assertTrue( class_exists( 'All_About_Modal\Inc\Plugin' ) );
 	}
 }

@@ -2,12 +2,12 @@
 /**
  * Registers all custom gutenberg blocks.
  *
- * @package easy-wp-modal
+ * @package all-about-modal
  */
 
-namespace Easy_WP_Modal\Inc;
+namespace All_About_Modal\Inc;
 
-use Easy_WP_Modal\Inc\Traits\Singleton;
+use All_About_Modal\Inc\Traits\Singleton;
 
 /**
  * Class Blocks
@@ -43,7 +43,7 @@ class Blocks {
 
 		// Register modal block.
 		register_block_type(
-			EASY_WP_MODAL_PATH . '/assets/build/blocks/modal/',
+			ALL_ABOUT_MODAL_PATH . '/assets/build/blocks/modal/',
 			[
 				'render_callback' => [ $this, 'render_modal' ],
 			]
@@ -92,7 +92,7 @@ class Blocks {
 		$attributes    = wp_parse_args( $attributes, [] );
 		$modal_content = $this->get_modal_content( $attributes );
 
-		return easy_wp_modal_template(
+		return all_about_modal_template(
 			'block-templates/modal',
 			[
 				'attributes'   => $attributes,

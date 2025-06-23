@@ -1,5 +1,5 @@
 {
-  "name": "shreya/easy-wp-modal",
+  "name": "shreya/all-about-modal",
   "description": "1.0.0",
   "type": "wordpress-plugin",
   "require-dev": {
@@ -20,6 +20,6 @@
     "pre-commit": [
       "npm run lint:staged"
     ],
-    "pot": "wp i18n make-pot . ./languages/easy-wp-modal.pot --domain=easy-wp-modal --include=\"inc,templates,assets/js,assets/build/blocks\""
+    "pot": "wp i18n make-pot . ./languages/all-about-modal.pot --domain=all-about-modal --include=\"inc,templates,assets/js,assets/build/blocks\""
   }
 }

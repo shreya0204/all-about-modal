@@ -2,7 +2,7 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Easy_WP_Modal 1.0\n"
+"Project-Id-Version: All_About_Modal 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/features-plugin-skeleton\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,26 +12,26 @@ msgstr ""
 "POT-Creation-Date: 2025-01-20T17:43:05+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
-"X-Domain: easy-wp-modal\n"
+"X-Domain: all-about-modal\n"
 
 #. Plugin Name of the plugin
-#: easy-wp-modal.php
-msgid "Easy_WP_Modal"
+#: all-about-modal.php
+msgid "All_About_Modal"
 msgstr ""
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
-#: easy-wp-modal.php
+#: all-about-modal.php
 msgid "https://rtcamp.com"
 msgstr ""
 
 #. Description of the plugin
-#: easy-wp-modal.php
+#: all-about-modal.php
 msgid "All backend functionality will take place in this plugin. Like, registering post type, taxonomy, widget and meta box."
 msgstr ""
 
 #. Author of the plugin
-#: easy-wp-modal.php
+#: all-about-modal.php
 msgid "rtCamp"
 msgstr ""
 

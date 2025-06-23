@@ -2,12 +2,12 @@
 /**
  * Assets class.
  *
- * @package easy-wp-modal
+ * @package all-about-modal
  */
 
-namespace Easy_WP_Modal\Inc;
+namespace All_About_Modal\Inc;
 
-use Easy_WP_Modal\Inc\Traits\Singleton;
+use All_About_Modal\Inc\Traits\Singleton;
 
 /**
  * Class Assets
@@ -47,29 +47,29 @@ class Assets {
 	public function enqueue_scripts() {
 
 		wp_register_script(
-			'easy-wp-modal-script',
-			EASY_WP_MODAL_URL . '/assets/build/js/main.js',
+			'all-about-modal-script',
+			ALL_ABOUT_MODAL_URL . '/assets/build/js/main.js',
 			[],
-			filemtime( EASY_WP_MODAL_PATH . '/assets/build/js/main.js' ),
+			filemtime( ALL_ABOUT_MODAL_PATH . '/assets/build/js/main.js' ),
 			true
 		);
 
 		wp_register_style(
-			'easy-wp-modal-style',
-			EASY_WP_MODAL_URL . '/assets/build/css/main.css',
+			'all-about-modal-style',
+			ALL_ABOUT_MODAL_URL . '/assets/build/css/main.css',
 			[],
-			filemtime( EASY_WP_MODAL_PATH . '/assets/build/css/main.css' )
+			filemtime( ALL_ABOUT_MODAL_PATH . '/assets/build/css/main.css' )
 		);
 
 		wp_register_style(
 			'tp-modal',
-			EASY_WP_MODAL_URL . '/node_modules/@travelopia/web-components/dist/modal/style.css',
+			ALL_ABOUT_MODAL_URL . '/node_modules/@travelopia/web-components/dist/modal/style.css',
 			[],
-			filemtime( EASY_WP_MODAL_PATH . '/node_modules/@travelopia/web-components/dist/modal/style.css' )
+			filemtime( ALL_ABOUT_MODAL_PATH . '/node_modules/@travelopia/web-components/dist/modal/style.css' )
 		);
 
-		wp_enqueue_script( 'easy-wp-modal-script' );
-		wp_enqueue_style( 'easy-wp-modal-style' );
+		wp_enqueue_script( 'all-about-modal-script' );
+		wp_enqueue_style( 'all-about-modal-style' );
 		wp_enqueue_style( 'tp-modal' );
 	}
 
@@ -83,22 +83,22 @@ class Assets {
 	public function admin_enqueue_scripts( $hook_suffix ) {
 
 		wp_register_script(
-			'easy-wp-modal-script',
-			EASY_WP_MODAL_URL . '/assets/build/js/admin.js',
+			'all-about-modal-script',
+			ALL_ABOUT_MODAL_URL . '/assets/build/js/admin.js',
 			[],
-			filemtime( EASY_WP_MODAL_PATH . '/assets/build/js/admin.js' ),
+			filemtime( ALL_ABOUT_MODAL_PATH . '/assets/build/js/admin.js' ),
 			true
 		);
 
 		wp_register_style(
-			'easy-wp-modal-style',
-			EASY_WP_MODAL_URL . '/assets/build/css/admin.css',
+			'all-about-modal-style',
+			ALL_ABOUT_MODAL_URL . '/assets/build/css/admin.css',
 			[],
-			filemtime( EASY_WP_MODAL_PATH . '/assets/build/css/admin.css' )
+			filemtime( ALL_ABOUT_MODAL_PATH . '/assets/build/css/admin.css' )
 		);
 
-		wp_enqueue_script( 'easy-wp-modal-script' );
-		wp_enqueue_style( 'easy-wp-modal-style' );
+		wp_enqueue_script( 'all-about-modal-script' );
+		wp_enqueue_style( 'all-about-modal-style' );
 
 	}
 
@@ -111,11 +111,11 @@ class Assets {
 
 		wp_register_script_module(
 			'@features-plugin-skeleton/module',
-			EASY_WP_MODAL_URL . '/assets/build/js/modules/module.js',
+			ALL_ABOUT_MODAL_URL . '/assets/build/js/modules/module.js',
 			[
 				'@wordpress/interactivity',
 			],
-			filemtime( EASY_WP_MODAL_PATH . '/assets/build/js/modules/module.js' )
+			filemtime( ALL_ABOUT_MODAL_PATH . '/assets/build/js/modules/module.js' )
 		);
 
 		wp_enqueue_script_module( '@features-plugin-skeleton/module' );

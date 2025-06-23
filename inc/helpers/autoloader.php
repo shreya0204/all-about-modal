@@ -2,10 +2,10 @@
 /**
  * Autoloader file for plugin.
  *
- * @package easy-wp-modal-featuers
+ * @package all-about-modal-featuers
  */
 
-namespace Easy_WP_Modal\Inc\Helpers;
+namespace All_About_Modal\Inc\Helpers;
 
 /**
  * Auto loader function.
@@ -17,7 +17,7 @@ namespace Easy_WP_Modal\Inc\Helpers;
 function autoloader( $resource = '' ) {
 
 	$resource_path  = false;
-	$namespace_root = 'Easy_WP_Modal\\';
+	$namespace_root = 'All_About_Modal\\';
 	$resource       = trim( $resource, '\\' );
 
 	if ( empty( $resource ) || strpos( $resource, '\\' ) === false || strpos( $resource, $namespace_root ) !== 0 ) {
@@ -71,7 +71,7 @@ function autoloader( $resource = '' ) {
 				break;
 		}
 
-		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( EASY_WP_MODAL_PATH ), $directory, $file_name );
+		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( ALL_ABOUT_MODAL_PATH ), $directory, $file_name );
 
 	}
 
@@ -87,7 +87,7 @@ function autoloader( $resource = '' ) {
 		}
 
 		// Create resource path for `TestCase` class as it is not in `tests/php/inc` directory.
-		$resource_path = sprintf( '%s/tests/php/%s.php', untrailingslashit( EASY_WP_MODAL_PATH ), $file_name );
+		$resource_path = sprintf( '%s/tests/php/%s.php', untrailingslashit( ALL_ABOUT_MODAL_PATH ), $file_name );
 
 	}
 
@@ -100,4 +100,4 @@ function autoloader( $resource = '' ) {
 
 }
 
-spl_autoload_register( '\Easy_WP_Modal\Inc\Helpers\autoloader' );
+spl_autoload_register( '\All_About_Modal\Inc\Helpers\autoloader' );

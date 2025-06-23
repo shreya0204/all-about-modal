@@ -1,12 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "easy-wp-modal/modal",
+	"name": "all-about-modal/modal",
 	"version": "1.0.0",
 	"title": "Modal",
 	"category": "widgets",
 	"icon": "layout",
-	"description": "A modal block for Easy WP Modal Features plugin.",
+	"description": "Your go-to modal buddy!",
 	"keywords": [
 		"modal",
 		"popup",
@@ -74,7 +74,7 @@
 			"default": 0
 		}
 	},
-	"textdomain": "easy-wp-modal",
+	"textdomain": "all-about-modal",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

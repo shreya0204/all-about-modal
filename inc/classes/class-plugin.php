@@ -2,14 +2,14 @@
 /**
  * Plugin manifest class.
  *
- * @package easy-wp-modal
+ * @package all-about-modal
  */
 
-namespace Easy_WP_Modal\Inc;
+namespace All_About_Modal\Inc;
 
-use \Easy_WP_Modal\Inc\Traits\Singleton;
-use \Easy_WP_Modal\Inc\Post_Types\Modal;
-use \Easy_WP_Modal\Inc\Taxonomies\Taxonomy_Example;
+use \All_About_Modal\Inc\Traits\Singleton;
+use \All_About_Modal\Inc\Post_Types\Modal;
+use \All_About_Modal\Inc\Taxonomies\Taxonomy_Example;
 
 /**
  * Class Plugin
@@ -41,7 +41,7 @@ class Plugin {
 	 * Register KSES filters.
 	 */
 	public function register_kses_filters() {
-		add_filter( 'wp_kses_allowed_html', [ $this, 'allow_easy_wp_modal_tags' ], 10, 2 );
+		add_filter( 'wp_kses_allowed_html', [ $this, 'allow_all_about_modal_tags' ], 10, 2 );
 	}
 
 	/**
@@ -51,9 +51,9 @@ class Plugin {
 	 * @param string $context      Context for allowed HTML.
 	 * @return array
 	 */
-	public function allow_easy_wp_modal_tags( $allowed_html, $context ) {
+	public function allow_all_about_modal_tags( $allowed_html, $context ) {
 		if ( 'post' === $context || 'user_description' === $context ) {
-			$allowed_html['easy-wp-modal']    = [
+			$allowed_html['all-about-modal']  = [
 				'modal-id'                        => true,
 				'visible-on'                      => true,
 				'trigger-on-page-load'            => true,

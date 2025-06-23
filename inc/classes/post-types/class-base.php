@@ -2,12 +2,12 @@
 /**
  * Abstract class to register post type.
  *
- * @package easy-wp-modal
+ * @package all-about-modal
  */
 
-namespace Easy_WP_Modal\Inc\Post_Types;
+namespace All_About_Modal\Inc\Post_Types;
 
-use \Easy_WP_Modal\Inc\Traits\Singleton;
+use \All_About_Modal\Inc\Traits\Singleton;
 
 /**
  * Base class to register post types.

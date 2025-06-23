@@ -15,7 +15,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="easy-wp-modal"/>
+				<element value="all-about-modal"/>
 			</property>
 		</properties>
 	</rule>

@@ -32,7 +32,7 @@ import save from './save';
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType(
-	'easy-wp-modal/modal',
+	'all-about-modal/modal',
 	{
 		/**
 		 * @see ./edit.js

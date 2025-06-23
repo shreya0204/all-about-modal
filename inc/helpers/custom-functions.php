@@ -1,8 +1,8 @@
 <?php
 /**
- * Easy_WP_Modal custom functions.
+ * All_About_Modal custom functions.
  *
- * @package easy-wp-modal
+ * @package all-about-modal
  */
 
 /**
@@ -12,9 +12,9 @@
  *
  * @return string Cache key.
  */
-function easy_wp_modal_get_cache_key( $unique = '' ) {
+function all_about_modal_get_cache_key( $unique = '' ) {
 
-	$cache_key = 'easy_wp_modal_cache_';
+	$cache_key = 'all_about_modal_cache_';
 
 	if ( is_array( $unique ) ) {
 		ksort( $unique );
@@ -34,7 +34,7 @@ function easy_wp_modal_get_cache_key( $unique = '' ) {
  *
  * @return array List of posts.
  */
-function easy_wp_modal_get_cached_posts( $args ) {
+function all_about_modal_get_cached_posts( $args ) {
 
 	if ( empty( $args ) || ! is_array( $args ) ) {
 		return [];
@@ -44,9 +44,9 @@ function easy_wp_modal_get_cached_posts( $args ) {
 
 	$expires_in = MINUTE_IN_SECONDS * 15;
 
-	$cache_key = easy_wp_modal_get_cache_key( $args );
+	$cache_key = all_about_modal_get_cache_key( $args );
 
-	$cache  = new \Easy_WP_Modal\Inc\Cache( $cache_key );
+	$cache  = new \All_About_Modal\Inc\Cache( $cache_key );
 	$result = $cache->expires_in( $expires_in )->updates_with( 'get_posts', [ $args ] )->get();
 
 	return ( ! empty( $result ) && is_array( $result ) ) ? $result : [];
@@ -60,7 +60,7 @@ function easy_wp_modal_get_cached_posts( $args ) {
  *
  * @return string Template markup.
  */
-function easy_wp_modal_get_template_content( $slug, $vars = [] ) {
+function all_about_modal_get_template_content( $slug, $vars = [] ) {
 
 	ob_start();
 
@@ -81,9 +81,9 @@ function easy_wp_modal_get_template_content( $slug, $vars = [] ) {
  *
  * @return string|void Template markup.
  */
-function easy_wp_modal_template( $template, $variables = [], $echo = false ) {
+function all_about_modal_template( $template, $variables = [], $echo = false ) {
 
-	$template_file = sprintf( '%1$s/templates/%2$s.php', EASY_WP_MODAL_PATH, $template );
+	$template_file = sprintf( '%1$s/templates/%2$s.php', ALL_ABOUT_MODAL_PATH, $template );
 
 	if ( ! file_exists( $template_file ) ) {
 		return '';
@@ -115,9 +115,9 @@ function easy_wp_modal_template( $template, $variables = [], $echo = false ) {
  *
  * @return mixed Data file content.
  */
-function easy_wp_modal_get_data( $slug, $default = [] ) {
+function all_about_modal_get_data( $slug, $default = [] ) {
 
-	$data_file = sprintf( EASY_WP_MODAL_PATH . '/inc/data/%s.php', $slug );
+	$data_file = sprintf( ALL_ABOUT_MODAL_PATH . '/inc/data/%s.php', $slug );
 
 	if ( file_exists( $data_file ) ) {
 
@@ -141,7 +141,7 @@ function easy_wp_modal_get_data( $slug, $default = [] ) {
  *
  * @return bool Return true if it's production else return false.
  */
-function easy_wp_modal_is_production() {
+function all_about_modal_is_production() {
 
 	if ( 'production' === wp_get_environment_type() ) {
 		return true;
@@ -161,7 +161,7 @@ function easy_wp_modal_is_production() {
  * @return bool|string Boolean indicating if current UA matches $kind. If
  *                     $return_matched_agent is true, returns the UA string
  */
-function easy_wp_modal_is_mobile( $kind = 'any', $return_matched_agent = false ) {
+function all_about_modal_is_mobile( $kind = 'any', $return_matched_agent = false ) {
 
 	if ( function_exists( 'jetpack_is_mobile' ) ) {
 		return jetpack_is_mobile( $kind, $return_matched_agent );

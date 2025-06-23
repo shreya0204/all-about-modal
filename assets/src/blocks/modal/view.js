@@ -205,4 +205,4 @@ class Modal extends HTMLElement {
 	}
 }
 
-window.customElements.define( 'easy-wp-modal', Modal );
+window.customElements.define( 'all-about-modal', Modal );

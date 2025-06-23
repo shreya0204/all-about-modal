@@ -2,12 +2,12 @@
 /**
  * Class for SEO related stuff.
  *
- * @package easy-wp-modal
+ * @package all-about-modal
  */
 
-namespace Easy_WP_Modal\Inc;
+namespace All_About_Modal\Inc;
 
-use Easy_WP_Modal\Inc\Traits\Singleton;
+use All_About_Modal\Inc\Traits\Singleton;
 
 /**
  * Class SEO
