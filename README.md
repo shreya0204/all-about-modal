@@ -1,4 +1,6 @@
-# All About Modal. Your Go-To Modal Buddy 🎯
+# All About Modal 🎯
+
+![Image](/assets/banner-1544x500.png)
 
 A modern, lightweight modal & popup plugin for WordPress. Built with marketers in mind, and engineered for flexibility. Show anything, anywhere, anytime without writing a single line of code. Whether you're capturing leads, announcing offers, or nudging users, this is your go-to modal buddy.
 
