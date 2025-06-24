@@ -2,30 +2,29 @@
 
 A modern, lightweight modal & popup plugin for WordPress. Built with marketers in mind, and engineered for flexibility. Show anything, anywhere, anytime without writing a single line of code. Whether you're capturing leads, announcing offers, or nudging users, this is your go-to modal buddy.
 
----
 
 ## 🚀 Features
 
-- **Smart Triggers**
+### **Smart triggers**
 
   Show modals on scroll, exit-intent, page load, click, hover, focus, or even when the element scrolls into view.
-- **Wrap Any Element to Trigger a Modal**
+### **Wrap any element to trigger a modal**
 
   Want a button, image, or even a heading to trigger a modal? Just wrap it inside the **All About Modal** block and that block becomes the trigger.
-- **Editor-First Experience**
+### **Editor-first experience**
 
   Works natively with the WordPress block editor. Easily add modals as blocks and configure their behavior through block settings.
-- **Zero JS Required**
+### **Zero JS required**
 
-  Powered by the open-source `tp-modal` web component from [Travelopia]([https://github.com/Travelopia/web-components](https://github.com/Travelopia/web-components)) and yes, thank you, Travelopia! 🙌
-- **Mobile-Friendly & Responsive**
+  Powered by the open-source `tp-modal` web component from [Travelopia](https://github.com/Travelopia) and yes, thank you, Travelopia! 🙌
+### **Mobile-friendly and responsive**
 
   Choose to show your modal on desktop, mobile, or both.
-- **Reusable Across Pages**
+### **Reusable across pages**
 
   Create once, use anywhere. Modals are stored as a custom post type, making content management seamless.
 
----
+
 
 ## 💼 Use Cases
 
@@ -47,7 +46,7 @@ Your modal isn’t just a popup, it’s a **growth lever**. Use it to:
 
 If you're serious about conversion, modals are one of the most high-ROI tools in your toolbox, when used right.
 
----
+
 
 ## 🔧 How It Works
 
@@ -58,11 +57,11 @@ If you're serious about conversion, modals are one of the most high-ROI tools in
 
 Yes, it’s really that simple.
 
----
+
 
 ## 🎥 Demo & Walkthrough
 
----
+
 
 ## 👨‍💻 Technical Details
 
@@ -71,9 +70,9 @@ Yes, it’s really that simple.
 - Clean, semantic HTML output
 - No bloating, style as you want (no !important overrides)
 
-> ℹ️ While this plugin is not yet formally extensible via WordPress filters/actions, it’s built in a modular way, extensibility support may be added in future updates.
+> While this plugin is not yet formally extensible via WordPress filters/actions, it’s built in a modular way, extensibility support may be added in future updates.
 
----
+
 
 ## 🤝 Attribution
 
@@ -81,7 +80,7 @@ This plugin uses the excellent [`tp-modal`](https://github.com/Travelopia/web-co
 
 All logic for *when*, *how*, and *why* modals trigger including multiple behavior-based conditions is custom-built specifically for **All About Modal** to help marketers run contextual, high-impact modals with ease.
 
----
+
 
 ## 🛣 Roadmap
 
@@ -91,7 +90,7 @@ All logic for *when*, *how*, and *why* modals trigger including multiple behavio
 - [ ] Optional close after delay
 - [ ] Custom events API for devs
 
----
+
 
 ## 📄 License
 
