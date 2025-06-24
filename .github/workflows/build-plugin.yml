@@ -1,3 +1,4 @@
+
 name: Build Plugin for deployment
 
 concurrency: build-plugin
@@ -29,19 +30,33 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: NodeJS Dev cache
+        id: node-dev-cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node-dev-${{ hashFiles( 'package-lock.json' ) }}-${{ hashFiles( '.github/workflows/build-plugin.yml' ) }}
+
+      - name: Install NodeJS dependencies (with dev)
+        if: steps.node-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Build plugin
+        run: npm run build:prod
+
+      - name: Cleanup node node_modules
+        run: rm -rf node_modules
+
       - name: NodeJS cache
-        id: node-cache
+        id: node-prod-cache
         uses: actions/cache@v3
         with:
           path: node_modules
           key: node-prod-${{ hashFiles( 'package-lock.json' ) }}-${{ hashFiles( '.github/workflows/build-plugin.yml' ) }}
 
-      - name: Install NodeJS dependencies
+      - name: Install NodeJS dependencies (with dev)
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm ci --omit=dev
-
-      - name: Build plugin
-        run: npm run build:prod
 
       - name: Cleanup
         run: bash bin/prepare.sh
