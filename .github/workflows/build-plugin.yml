@@ -40,6 +40,9 @@ jobs:
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm ci --omit=dev
 
+      - name: Build plugin
+        run: npm run build:prod
+
       - name: Cleanup
         run: bash bin/prepare.sh
 

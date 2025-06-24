@@ -9,7 +9,6 @@ namespace All_About_Modal\Inc;
 
 use \All_About_Modal\Inc\Traits\Singleton;
 use \All_About_Modal\Inc\Post_Types\Modal;
-use \All_About_Modal\Inc\Taxonomies\Taxonomy_Example;
 
 /**
  * Class Plugin
@@ -31,7 +30,6 @@ class Plugin {
 		$this->load_plugin_configs();
 		SEO::get_instance();
 		Blocks::get_instance();
-		Meta_Blocks::get_instance();
 
 		$this->register_kses_filters();
 
@@ -98,8 +96,6 @@ class Plugin {
 	public function load_taxonomies() {
 
 		// Load all taxonomies classes.
-		Taxonomy_Example::get_instance();
-
 	}
 
 	/**
