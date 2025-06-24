@@ -2,7 +2,7 @@
 set -x
 set -euo pipefail
 
-cp -r ./assets/screenshots/* ./assets/
+# cp -r ./assets/screenshots/* ./assets/
 
 # Cleanup.
 rm -f README.md
