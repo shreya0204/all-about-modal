@@ -1,22 +1,16 @@
 {
   "name": "all-about-modal",
   "version": "1.0.0",
-  "description": "Features plugin skeleton for internal use.",
+  "description": "Your go-to modal buddy",
   "private": true,
-  "author": "rtCamp",
+  "author": "Shreya Agarwal",
   "license": "GPL-2.0-or-later",
   "keywords": [
     "wp-plugin",
-    "feature-plugin"
+    "wordpress",
+    "modal",
+    "popup"
   ],
-  "homepage": "https://github.com/rtCamp/features-plugin-skeleton#readme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rtCamp/features-plugin-skeleton.git"
-  },
-  "bugs": {
-    "url": "https://github.com/rtCamp/features-plugin-skeleton/issues"
-  },
   "dependencies": {
     "@travelopia/web-components": "0.9.4",
     "@wordpress/block-editor": "12.0.0",
