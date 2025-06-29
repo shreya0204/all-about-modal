@@ -65,17 +65,17 @@ class Blocks {
 			return '';
 		}
 
+		$modal_content = '';
+
 		// Get the block content by ID.
-		$modal_content = get_post_field( 'post_content', $modal_id );
-		if ( ! $modal_content ) {
-			return '';
+		$modal_blocks = parse_blocks( get_post_field( 'post_content', $modal_id ) );
+
+		foreach ( $modal_blocks as $block ) {
+			$modal_content .= render_block( $block );
 		}
 
-		// Parse the block content to render it.
-		$parsed_content = apply_filters( 'the_content', $modal_content );
-
 		// Return the parsed content.
-		return $parsed_content;
+		return $modal_content;
 
 	}
 
@@ -91,6 +91,16 @@ class Blocks {
 
 		$attributes    = wp_parse_args( $attributes, [] );
 		$modal_content = $this->get_modal_content( $attributes );
+		$height        = 'fit-content';
+		$width         = 'fit-content';
+
+		if ( false === $attributes['useContentHeight'] ) {
+			$height = $attributes['height'];
+		}
+
+		if ( false === $attributes['useContentWidth'] ) {
+			$width = $attributes['width'];
+		}
 
 		return all_about_modal_template(
 			'block-templates/modal',
@@ -98,6 +108,9 @@ class Blocks {
 				'attributes'   => $attributes,
 				'content'      => $modal_content,
 				'inner_blocks' => $content,
+				'height'       => $height,
+				'width'        => $width,
+
 			]
 		);
 	}

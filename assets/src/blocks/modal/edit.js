@@ -16,6 +16,7 @@ import {
 	PanelBody,
 	PanelRow,
 	Notice,
+	__experimentalUnitControl as UnitControl, // eslint-disable-line @wordpress/no-unsafe-wp-apis
 } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { useEffect, useRef } from '@wordpress/element';
@@ -43,6 +44,10 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		triggerOnMouseLeave,
 		triggerScrollIntoView,
 		triggerScrollIntoViewOffset,
+		width,
+		height,
+		useContentHeight,
+		useContentWidth,
 	} = attributes;
 
 	const defaultPageTriggers = {
@@ -62,6 +67,12 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		triggerScrollIntoView: false,
 		triggerScrollIntoViewOffset: 0,
 	};
+
+	const units = [
+		{ value: 'px', label: 'px', default: 0 },
+		{ value: '%', label: '%', default: 10 },
+		{ value: 'em', label: 'em', default: 0 },
+	];
 
 	//Fetch all modal from 'all-about-modal' post type.
 	const modals = useSelect( ( select ) => {
@@ -412,6 +423,57 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 						) }
 					</PanelBody>
 				) }
+				{ /* Add a Placeholder to add height and width controls */ }
+				<PanelBody title={ __( 'Dimensions', 'all-about-modal' ) }>
+					<PanelRow>
+						<ToggleControl
+							label={ __( 'Use content width', 'all-about-modal' ) }
+							checked={ useContentWidth }
+							onChange={ ( value ) => setAttributes( { useContentWidth: value } ) }
+							help={ __(
+								'The width will fit the content.',
+								'all-about-modal',
+							) }
+						/>
+					</PanelRow>
+					{
+						! useContentWidth &&
+						<PanelRow>
+							<UnitControl
+								label={ __( 'Width', 'all-about-modal' ) }
+								value={ width }
+								onChange={ ( value ) =>
+									setAttributes( { width: value } )
+								}
+								units={ units }
+							/>
+						</PanelRow>
+					}
+					<PanelRow>
+						<ToggleControl
+							label={ __( 'Use content height', 'all-about-modal' ) }
+							checked={ useContentHeight }
+							onChange={ ( value ) => setAttributes( { useContentHeight: value } ) }
+							help={ __(
+								'The height will fit the content.',
+								'all-about-modal',
+							) }
+						/>
+					</PanelRow>
+					{
+						! useContentHeight &&
+						<PanelRow>
+							<UnitControl
+								label={ __( 'Height', 'all-about-modal' ) }
+								value={ height }
+								onChange={ ( value ) => {
+									setAttributes( { height: value } );
+								} }
+								units={ units }
+							/>
+						</PanelRow>
+					}
+				</PanelBody>
 			</InspectorControls>
 		</>
 	);

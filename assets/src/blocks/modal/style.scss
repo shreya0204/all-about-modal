@@ -8,6 +8,17 @@
 .all-about-modal {
 	display: block;
 
+	&__tp-modal {
+		padding: 0;
+	}
+
+	&__tp-modal-content {
+		max-width: none;
+		min-width: none;
+		min-height: none;
+		overflow-y: auto;
+	}
+
 	&__tp-modal tp-modal-close {
 		position: absolute;
 		top: 1rem;

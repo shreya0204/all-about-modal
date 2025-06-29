@@ -72,6 +72,22 @@
 		"triggerScrollIntoViewOffset": {
 			"type": "number",
 			"default": 0
+		},
+		"width": {
+			"type": "string",
+			"default": "50%"
+		},
+		"height": {
+			"type": "string",
+			"default": "50%"
+		},
+		"useContentHeight": {
+			"type": "boolean",
+			"default": true
+		},
+		"useContentWidth": {
+			"type": "boolean",
+			"default": true
 		}
 	},
 	"textdomain": "all-about-modal",

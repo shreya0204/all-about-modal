@@ -50,7 +50,7 @@ class Plugin {
 	 * @return array
 	 */
 	public function allow_all_about_modal_tags( $allowed_html, $context ) {
-		if ( 'post' === $context || 'user_description' === $context ) {
+		if ( 'post' === $context ) {
 			$allowed_html['all-about-modal']  = [
 				'modal-id'                        => true,
 				'visible-on'                      => true,

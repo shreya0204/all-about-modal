@@ -43,9 +43,9 @@
 				</svg>
 			</button>
 		</tp-modal-close>
-		<tp-modal-content>
+		<tp-modal-content class="all-about-modal__tp-modal-content" style="height: <?php echo esc_attr( $height ); ?>; width: <?php echo esc_attr( $width ); ?>">
 			<?php
-			echo wp_kses_post( $content );
+				echo $content; // phpcs:ignore -- We want to render the entire HTML markup of the modal page, therefore we have to allow everything.
 			?>
 		</tp-modal-content>
 	</tp-modal>
