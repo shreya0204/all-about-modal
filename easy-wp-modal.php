@@ -3,7 +3,6 @@
  * Plugin Name: All About Modal
  * Description: Your go-to modal buddy!
  * Author:      Shreya Agarwal
- * Author URI:  profiles.wordpress.org/shreya0204
  * License:     GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Version:     1.0
