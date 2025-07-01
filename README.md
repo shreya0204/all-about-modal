@@ -4,29 +4,31 @@
 
 A modern, lightweight modal & popup plugin for WordPress. Built with marketers in mind, and engineered for flexibility. Show anything, anywhere, anytime without writing a single line of code. Whether you're capturing leads, announcing offers, or nudging users, this is your go-to modal buddy.
 
-
 ## 🚀 Features
 
 ### **Smart triggers**
 
   Show modals on scroll, exit-intent, page load, click, hover, focus, or even when the element scrolls into view.
+
 ### **Wrap any element to trigger a modal**
 
   Want a button, image, or even a heading to trigger a modal? Just wrap it inside the **All About Modal** block and that block becomes the trigger.
+
 ### **Editor-first experience**
 
   Works natively with the WordPress block editor. Easily add modals as blocks and configure their behavior through block settings.
+
 ### **Zero JS required**
 
   Powered by the open-source `tp-modal` web component from [Travelopia](https://github.com/Travelopia) and yes, thank you, Travelopia! 🙌
+
 ### **Mobile-friendly and responsive**
 
   Choose to show your modal on desktop, mobile, or both.
+
 ### **Reusable across pages**
 
   Create once, use anywhere. Modals are stored as a custom post type, making content management seamless.
-
-
 
 ## 💼 Use Cases
 
@@ -48,8 +50,6 @@ Your modal isn’t just a popup, it’s a **growth lever**. Use it to:
 
 If you're serious about conversion, modals are one of the most high-ROI tools in your toolbox, when used right.
 
-
-
 ## 🔧 How It Works
 
 1. Go to **Modals > Add New**, and create your modal content.
@@ -59,11 +59,29 @@ If you're serious about conversion, modals are one of the most high-ROI tools in
 
 Yes, it’s really that simple.
 
-
-
 ## 🎥 Demo & Walkthrough
 
+Want to see All About Modal in action? Here are two real-world demos built with the plugin and no code needed.
 
+### Example 1: Newsletter signup on exit intent
+
+Triggered when a visitor tries to leave the page
+
+- Clean, mobile-friendly popup design
+- Great for lead magnets and email capture
+
+[Watch the demo 🎬](https://youtu.be/uuL7htD0V4Q?si=Y7etxHHaEpZ8Dssw)
+
+### Example 2: Book a call via CTA modal
+
+A "Talk to an expert" button opens an instant calendar modal
+
+- No redirects, no reloads, just smooth interaction
+- Perfect for SaaS, service, and lead-gen businesses
+
+[Watch the demo 🎬](https://youtu.be/YgDqzEuD_x4?si=hDoeI2XgUrCiMsQS)
+
+💡 These demos were built in under 2 minutes using the WordPress editor.
 
 ## 👨‍💻 Technical Details
 
@@ -74,15 +92,11 @@ Yes, it’s really that simple.
 
 > While this plugin is not yet formally extensible via WordPress filters/actions, it’s built in a modular way, extensibility support may be added in future updates.
 
-
-
 ## 🤝 Attribution
 
 This plugin uses the excellent [`tp-modal`](https://github.com/Travelopia/web-components) Web Component from [Travelopia](https://github.com/Travelopia), which powers the core modal display.
 
 All logic for *when*, *how*, and *why* modals trigger including multiple behavior-based conditions is custom-built specifically for **All About Modal** to help marketers run contextual, high-impact modals with ease.
-
-
 
 ## 🛣 Roadmap
 
@@ -91,8 +105,6 @@ All logic for *when*, *how*, and *why* modals trigger including multiple behavio
 - [ ] Auto-hide logic
 - [ ] Optional close after delay
 - [ ] Custom events API for devs
-
-
 
 ## 📄 License
 
