@@ -5,7 +5,7 @@
  * Author:      Shreya Agarwal
  * License:     GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Version:     1.0
+ * Version:     1.0.0
  * Requires at least: 5.7
  * Requires PHP: 7.4
  * Tested up to: 8.4
