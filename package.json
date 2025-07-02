@@ -11,6 +11,15 @@
     "modal",
     "popup"
   ],
+  "homepage": "https://github.com/shreya0204/all-about-modal/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shreya0204/all-about-modal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shreya0204/all-about-modal/issues",
+    "email": "shreya.connect@gmail.com"
+  },
   "dependencies": {
     "@travelopia/web-components": "0.9.4",
     "@wordpress/block-editor": "12.0.0",
@@ -77,14 +86,5 @@
     "posttest:php:coverage": "echo \"\\e[1m\\e[32mIf you have run this command with xdbug coverage enabled, you can view the coverage report at /coverage path\\e[0m\"",
     "wp-env": "wp-env",
     "pot": "composer run pot"
-  },
-  "bugs": {
-    "url": "https://github.com/shreya0204/all-about-modal/issues",
-    "email": "shreya.connect@gmail.com"
-  },
-  "homepage": "https://github.com/shreya0204/all-about-modal/blob/master/README.md",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shreya0204/all-about-modal.git"
   }
 }
