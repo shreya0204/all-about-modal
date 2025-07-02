@@ -5,6 +5,7 @@ const fs = require( 'fs' );
 const path = require( 'path' );
 const CssMinimizerPlugin = require( 'css-minimizer-webpack-plugin' );
 const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
+const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 
 /**
  * WordPress dependencies
@@ -52,6 +53,29 @@ const sharedConfig = {
 		},
 		minimizer: scriptConfig.optimization.minimizer.concat( [ new CssMinimizerPlugin() ] ),
 	},
+};
+
+// External libraries config.
+const libConfig = {
+	...sharedConfig,
+	entry: {
+		TPModalElement: path.resolve( process.cwd(), 'assets', 'src', 'vendor', 'tp-modal.js' ),
+	},
+	output: {
+		...sharedConfig.output,
+		path: path.resolve( process.cwd(), 'assets', 'build', 'vendor' ),
+		filename: ( { chunk: { name } } ) => `js/${ name.toLowerCase() }.js`,
+		library: {
+			type: 'window',
+			name: '[name]',
+			export: 'default',
+		},
+	},
+	plugins: [
+		new MiniCssExtractPlugin( {
+			filename: ( { chunk: { name } } ) => `css/${ name.toLowerCase() }.css`,
+		} ),
+	],
 };
 
 // Generate a webpack config which includes setup for CSS extraction.
@@ -107,7 +131,7 @@ if (hasExperimentalModulesFlag) {
 	};
 }
 
-const customExports = [scripts, styles];
+const customExports = [libConfig, scripts, styles];
 
 if (hasExperimentalModulesFlag) {
 	customExports.push(moduleScripts);

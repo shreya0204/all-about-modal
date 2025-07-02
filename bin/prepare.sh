@@ -31,5 +31,6 @@ rm -f babel.config.js
 rm -f composer.json
 rm -f phpunit.xml.dist
 rm -f webpack.config.js
+rm -rf node_modules
 
 set +x

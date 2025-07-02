@@ -62,15 +62,15 @@ class Assets {
 		);
 
 		wp_register_style(
-			'tp-modal',
-			ALL_ABOUT_MODAL_URL . '/node_modules/@travelopia/web-components/dist/modal/style.css',
+			'tp-modal-style',
+			ALL_ABOUT_MODAL_URL . '/assets/build/vendor/css/style-tpmodalelement.css',
 			[],
-			filemtime( ALL_ABOUT_MODAL_PATH . '/node_modules/@travelopia/web-components/dist/modal/style.css' )
+			filemtime( ALL_ABOUT_MODAL_PATH . '/assets/build/vendor/css/style-tpmodalelement.css' )
 		);
 
+		wp_enqueue_style( 'tp-modal-style' );
 		wp_enqueue_script( 'all-about-modal-script' );
 		wp_enqueue_style( 'all-about-modal-style' );
-		wp_enqueue_style( 'tp-modal' );
 	}
 
 	/**
