@@ -32,7 +32,7 @@ jobs:
 
       - name: NodeJS Dev cache
         id: node-dev-cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: node-dev-${{ hashFiles( 'package-lock.json' ) }}-${{ hashFiles( '.github/workflows/build-plugin.yml' ) }}
