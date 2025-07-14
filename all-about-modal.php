@@ -16,7 +16,9 @@
  * @package all-about-modal
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 define( 'ALL_ABOUT_MODAL_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( 'ALL_ABOUT_MODAL_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
