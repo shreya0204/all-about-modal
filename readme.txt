@@ -8,7 +8,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-All About Modal: It lets you create modals/popups in the block editor. Trigger on scroll, click, delay & more. Great for lead capture, CTAs & announcements.
+It lets you create modals/popups in the block editor. Trigger on scroll, click, delay & more. Great for lead capture, CTAs & announcements.
 
 == Description ==
 
