@@ -8,7 +8,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-All About Modal: Your go-to modal buddy!
+All About Modal: All About Modal lets you create modals and popups using the block editor. You can trigger them on scroll, click, delay, exit intent, and more. Any block can be used as a trigger. Useful for lead capture, announcements, and call-to-actions.
 
 == Description ==
 
@@ -21,7 +21,7 @@ All About Modal is a sleek modal and popup plugin designed for WordPress users w
 * **Smart Triggers:** Show modals on scroll, exit-intent, page load, click, hover, focus, or element-in-view.
 * **Wrap Any Element to Trigger a Modal:** Want a button or heading to open a modal? Just wrap it inside the "All About Modal" block.
 * **Editor-First Experience:** Built for the WordPress block editor. Configure everything visually.
-* **Zero JS Required:** Powered by the open-source `tp-modal` component from Travelopia.
+* **Zero JS Required:** All powered by the open-source.
 * **Mobile-Friendly:** Choose to display modals on desktop, mobile, or both.
 * **Reusable:** Modals are saved as a custom post type. Create once, use anywhere.
 
@@ -76,12 +76,6 @@ https://youtu.be/YgDqzEuD_x4?si=EYb7HINCIv8JH_51
 * Clean HTML output  
 * No style overrides or bloated code  
 * Modular structure for future extensibility
-
-= 🤝 Attribution =
-
-This plugin uses the [`tp-modal`](https://github.com/Travelopia/web-components) Web Component from Travelopia for modal rendering.
-
-All behavior, logic, and WordPress integration is built specifically for **All About Modal** with marketers and conversion in mind.
 
 = 🛣 Roadmap =
 

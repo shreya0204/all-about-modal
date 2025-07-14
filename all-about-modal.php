@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: All About Modal
- * Description: Your go-to modal buddy!
+ * Description: All About Modal lets you create modals and popups using the block editor. You can trigger them on scroll, click, delay, exit intent, and more. Any block can be used as a trigger. Useful for lead capture, announcements, and call-to-actions.
  * Author:      Shreya Agarwal
  * Author URI:  https://profiles.wordpress.org/shreya0204/
  * License:     GPL2
@@ -15,6 +15,8 @@
  *
  * @package all-about-modal
  */
+
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'ALL_ABOUT_MODAL_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( 'ALL_ABOUT_MODAL_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );

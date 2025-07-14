@@ -5,6 +5,8 @@
  * @package all-about-modal
  */
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 ?>
 
 <all-about-modal
