@@ -8,7 +8,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-All About Modal: All About Modal lets you create modals and popups using the block editor. You can trigger them on scroll, click, delay, exit intent, and more. Any block can be used as a trigger. Useful for lead capture, announcements, and call-to-actions.
+All About Modal: It lets you create modals/popups in the block editor. Trigger on scroll, click, delay & more. Great for lead capture, CTAs & announcements.
 
 == Description ==
 
