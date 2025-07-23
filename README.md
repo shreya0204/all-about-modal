@@ -2,6 +2,8 @@
 
 ![Image](/assets/banner-1544x500.png)
 
+[Download the plugin from WordPress.org 💙](https://wordpress.org/plugins/all-about-modal/)
+
 A modern, lightweight modal & popup plugin for WordPress. Built with marketers in mind, and engineered for flexibility. Show anything, anywhere, anytime without writing a single line of code. Whether you're capturing leads, announcing offers, or nudging users, this is your go-to modal buddy.
 
 ## 🚀 Features
@@ -103,7 +105,6 @@ All logic for *when*, *how*, and *why* modals trigger including multiple behavio
 - [ ] Cookie & session-based trigger logic
 - [ ] Trigger by URL parameters
 - [ ] Auto-hide logic
-- [ ] Optional close after delay
 - [ ] Custom events API for devs
 
 ## 📄 License
